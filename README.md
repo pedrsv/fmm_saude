@@ -18,7 +18,7 @@ Orientador(a):  Fernanda Belmira
 Product Owner       Sergio Lyra Barboza
 Tech Lead           João Vitor Silva Lima Fernandes
 
-Project Analyst     Luiz Miguel de Souza Bastos
+Project Analyst     Luiz Miguel Souza Bastos
 Project Analyst     Brenna Eduarda Menezes dos Santos
 Project Analyst     Ruan Vitor Moreira Rodrigues
 
@@ -26,8 +26,8 @@ Backend Developer   Pedro Lucas Soares da Silva
 Backend Developer   Vitor Hugo Guedes de Oliveira Fonseca
 Backend Developer   João Gabriel Castro Santos
 
-Frontend Developer  Filipe Rebelo
-Frontend Developer  Wagner Torres
+Frontend Developer  Filipe Crysthian Rebelo Costa
+Frontend Developer  Wagner Torres de Pinho
 
 Quality Assurance   Guilherme Cruz de Aquino
 Quality Assurance   Maciel Pinheiro
