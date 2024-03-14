@@ -1,0 +1,6 @@
+@ApiPwaBackend_HostAddress = http://localhost:5296
+
+GET {{ApiPwaBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
