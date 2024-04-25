@@ -1,0 +1,135 @@
+/* POPPINS FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Estilo Básico */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.form-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Estilo do Formulário */
+.form {
+    background: #fff;
+    padding: 20px;
+    margin-left: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group,
+.gender-inputs,
+.diseases-previous-inputs,
+.diseases-family-inputs,
+.comorbidade-inputs,
+.habits-life-inputs {
+    margin-bottom: 15px;
+}
+
+.input-box,
+.gender-input,
+.diseases-previous-group,
+.diseases-family-group,
+.comorbidade-group,
+.habits-life-group {
+    margin-bottom: 10px;
+}
+
+.input-box label,
+.gender-input label,
+.diseases-previous-group label,
+.diseases-family-group label,
+.comorbidade-group label,
+.habits-life-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-box input,
+.gender-input input,
+.diseases-previous-group input,
+.diseases-family-group input,
+.comorbidade-group input,
+.habits-life-group input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+}
+
+.gender-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* Botão Salvar */
+.save-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.save-button button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+.save-button button a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.save-button button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo Responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .form {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .form-image img {
+        display: none; /* Esconde a imagem em dispositivos menores para focar no formulário */
+    }
+}

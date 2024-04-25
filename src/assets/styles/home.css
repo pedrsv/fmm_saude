@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-wrap: wrap;
+    background: #3c524e;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    /* Adicionado para permitir a quebra de linha se necessário */
+}
+
+.container,
+.container-2 {
+    width: 300px;
+    height: 300px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    /* Modificado de row (implícito) para column */
+    align-items: center;
+    justify-content: center;
+    /* Isso centraliza os itens na direção vertical agora */
+    background: rgb(206, 206, 206);
+    margin: 10px;
+    box-shadow: 5px 5px 10px 1px rgba(0,0,0,0.5);
+    cursor: pointer;;
+    /* Adicionado para garantir espaço entre as caixas em dispositivos menores ou em quebra de linha */
+}
+
+.container {
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    /* margin-right: 50px; Removido para melhor responsividade */
+}
+
+.container-2 {
+    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+}
+
+.imc-image {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    /* Adicionado para garantir espaço entre o texto e a imagem */
+}
+
+.container:hover,
+.container-2:hover {
+    background: rgba(226, 226, 226, 0.8);
+    background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+    transition: linear;
+    transition: .75s;
+
+}
+
+h3{
+    color: #060606;
+    font-size: 1.2rem;
+    font-weight: bold;    
+}
+
