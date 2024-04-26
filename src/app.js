@@ -73,8 +73,8 @@ function handleCalculate() {
 
 function submitForm() {
     
-    const imc =  handleCalculate();
-    const pressure =  calculate();
+    // const imc =  handleCalculate();
+    // const pressure =  calculate();
 
     document.getElementById('loading').style.display = 'none';
     document.getElementById('results').style.display = 'block';
