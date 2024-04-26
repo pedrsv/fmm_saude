@@ -44,7 +44,7 @@
 
 body{
 
-    background-image: url('src/assets/images/fundacao.jpg');
+    background-image: url('comp_pwd/src/assets/images/fundacao.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -58,7 +58,7 @@ body{
     transform: translateX(-50%);
     width: 300px; /* largura da imagem */
     height: 100px; /* altura da imagem */
-    background-image: url('src/assets/images/fmm-logo-white.png');
+    background-image: url('comp_pwd/src/assets/images/fmm-logo-white.png');
     background-size: cover;
     background-position: center;
     z-index: 1;
