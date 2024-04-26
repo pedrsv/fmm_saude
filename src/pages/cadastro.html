@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha Cadastral de Saúde</title>
     <link rel="stylesheet" href="../../src/assets/styles/cadastro.css">
-    <script src="/comp_pwd/src/app.js"></script>
-    
+ 
 </head>
 
 <body>
@@ -17,8 +16,20 @@
     
     <div class="container">
 
-        <div class="form">
-            <form action="/submit-ficha-cadastral" method="POST">
+         <!-- Tela de loading -->
+    <div class="loading" id="loading">
+        <p>Carregando...</p>
+    </div>
+
+
+    <div id="results"">
+        
+        
+
+    </div>
+
+        <div class="form" id="myFormdiv">
+            <form id ="myForm">
 
                 <div class="form-header">
                     <div class="title">
@@ -203,12 +214,16 @@
                 </div>
 
                 <div class="save-button">
-                    <button type="submit" value="salvar"><a href="#">Salvar</a></button>
+                    <button type="submit" value="Enviar" onclick="showLoading(event)">Enviar</button>
                 </div>
             </form>
         </div>
     </div>
 
+    <script src="/src/app.js"></script>
+
 </body>
 
+
+    
 </html>

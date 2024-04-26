@@ -8,9 +8,43 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 9999;
+    text-align: center;
+    padding-top: 20%;
+}
+
+#results {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+
+}
+        /* Animação de fade-in */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+
 body{
 
-    background-image: url('/comp_pwd/src/assets/images/fundacao.jpg');
+    background-image: url('/src/assets/images/fundacao.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -24,7 +58,7 @@ body{
     transform: translateX(-50%);
     width: 300px; /* largura da imagem */
     height: 100px; /* altura da imagem */
-    background-image: url('/comp_pwd/src/assets/images/fmm-logo-white.png');
+    background-image: url('/src/assets/images/fmm-logo-white.png');
     background-size: cover;
     background-position: center;
     z-index: 1;
