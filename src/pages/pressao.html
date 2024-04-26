@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Pressão Arterial</title>
+</head>
+<body>
+    <h1>Calculadora de Pressão Arterial</h1>
+    <form id="pressaoForm">
+        <label for="sistolic">Pressão Sistólica (mmHg):</label>
+        <input type="number" id="sistolic" name="sistolic" required><br><br>
+        
+        <label for="diastolic">Pressão Diastólica (mmHg):</label>
+        <input type="number" id="diastolic" name="diastolic" required><br><br>
+        
+        <button type="button" onclick="calculate()">Calcular Pressão</button>
+    </form>
+    
+    <h2>Resultados:</h2>
+    <div id="result"></div>
+
+    <script src="../js/pressao.js"></script>
+</body>
+</html>
