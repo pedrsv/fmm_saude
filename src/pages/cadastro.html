@@ -11,14 +11,14 @@
 </head>
 
 <body>
-    <div class="container">    
-        <div class="form-image">
-            <!-- <img src="/src/assets/images/fundacao.jpg" alt="fundacao"> -->
-        </div>
+    <div class="blur-bg"></div> 
+    <div class="corner-image"></div>
+
+    
+    <div class="container">
+
         <div class="form">
             <form action="/submit-ficha-cadastral" method="POST">
-                
-                
 
                 <div class="form-header">
                     <div class="title">
@@ -32,9 +32,14 @@
                         <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
                     </div>
                     <div class="input-box">
+                        <label for="CPF">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    </div>
+                    <div class="input-box">
                         <label for="email">Email:</label>
                         <input type="text" id="email" name="email" placeholder="seuemail@email.com" required>
                     </div>
+                    
                     <div class="input-box">
                         <label for="data_nascimento">Data de Nascimento:</label>
                         <input type="date" id="data_nascimento" name="data_nascimento" required>
@@ -43,23 +48,20 @@
 
                 <div class="gender-inputs inline">
                     <div class="gender-title">
-                        <h3>Gênero</h3>
+                        <h4>Gênero:</h4>
                     </div>
                     <div class="gender-group">
-                        <div class="gender-input">
-                            <label for="feminino">Feminino</label>
-                            <input type="radio" id="feminino" name="genero">
-                        </div>
-                        <div class="gender-input">
-                            <label for="masculino">Masculino</label>
-                            <input type="radio" id="masculino" name="genero">
-                        </div>
+                        <select name="gender-select" id="gender-select">
+                            <option value="Feminino">Feminino</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Não Informar">Não Informar</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="diseases-previous-inputs">
                     <div class="diseases-family-title">
-                        <h3>Doenças atuais/anteriores</h3>
+                        <h4>Doenças atuais/anteriores</h4>
                     </div>
                     <div class="diseases-previous-group">
                         <input type="checkbox" id="cardiaca" name="doencas" value="Cardíaca">
@@ -94,43 +96,53 @@
 
                 <div class="diseases-family-inputs">
                     <div class="diseases-family-title">
-                        <h3>Doenças Familiares</h3>
+                        <h4>Doenças Familiares</h4>
                     </div>
                     <div class="diseases-family-group">
-                        <input type="checkbox" id="cardiaca" name="doencas_familiares" value="Cardíaca">
-                        <label for="cardiaca">Cardíaca</label>
+                        <input type="checkbox" id="cardiacas" name="doencas_familiares" value="Cardíaca">
+                        <label for="cardiacas">Cardíaca</label>
                     </div>
 
                     <div class="diseases-family-group">
-                        <input type="checkbox" id="renal" name="doencas_familiares" value="Renal">
-                        <label for="renal">Renal</label>
+                        <input type="checkbox" id="renais" name="doencas_familiares" value="Renal">
+                        <label for="renais">Renal</label>
                     </div>
 
                     <div class="diseases-family-group">
-                        <input type="checkbox" id="neurologica" name="doencas_familiares" value="Neurológica">
-                        <label for="neurologica">Neurológica</label>
+                        <input type="checkbox" id="neurologicas" name="doencas_familiares" value="Neurológica">
+                        <label for="neurologicas">Neurológica</label>
                     </div>
 
                     <div class="diseases-family-group">
-                        <input type="checkbox" id="muscular" name="doencas_familiares" value="Muscular">
-                        <label for="muscular">Muscular</label>
+                        <input type="checkbox" id="musculares" name="doencas_familiares" value="Muscular">
+                        <label for="musculares">Muscular</label>
                     </div>
 
                     <div class="diseases-family-group">
-                        <input type="checkbox" id="ortopedica" name="doencas_familiares" value="Ortopédica">
-                        <label for="ortopedica">Ortopédica</label>
+                        <input type="checkbox" id="ortopedicas" name="doencas_familiares" value="Ortopédica">
+                        <label for="ortopedicas">Ortopédica</label>
                     </div>
 
                     <div class="diseases-family-group">
 
-                        <input type="checkbox" id="nenhuma" name="doencas_familiares" value="Nenhuma">
-                        <label for="nenhuma">Nenhuma</label>
+                        <input type="checkbox" id="nenhumas" name="doencas_familiares" value="Nenhuma">
+                        <label for="nenhumas">Nenhuma</label>
                     </div>
-                </div>
+
+            </div>
+
+            <div class="diseases-family-title">
+                <h4>Grau de Parentesco das Doenças Familiares </h4>
+            </div>
+
+            <div class="input-box">
+                <input type="text" id="diseases-family" name="diseases-family" placeholder="pai, mãe, avós, irmão ...">
+            </div>
+
 
                 <div class="comorbidade-inputs">
                     <div class="comorbidade-title">
-                        <h3>Comorbidades preexistentes</h3>
+                        <h4>Comorbidades preexistentes</h4>
                     </div>
                     <div class="comorbidade-group">
                         <input type="checkbox" id="hipertensao" name="comorbidades" value="Hipertensão">
@@ -141,14 +153,14 @@
                         <label for="diabetes">Diabetes</label>
                     </div>
                     <div class="comorbidade-group">
-                        <input type="checkbox" id="nenhuma" name="comorbidades" value="Nenhuma">
-                        <label for="nenhuma">Nenhuma</label>
+                        <input type="checkbox" id="nenhumas1" name="comorbidades" value="Nenhuma">
+                        <label for="nenhumas1">Nenhuma</label>
                     </div>
                 </div>
 
                 <div class="habits-life-inputs">
                     <div class="habits-life-title">
-                        <h3>Consumo de álcool</h3>
+                        <h4>Consumo de álcool</h4>
                     </div>
                     <div class="habits-life-group">
                         <input type="radio" id="sim" name="alcool" value="sim">
@@ -160,9 +172,17 @@
                     </div>
                 </div>
 
+                <div class="habits-life-title">
+                    <h4>Quantas vezes você consome alcool na semana? </h4>
+                </div>
+    
+                <div class="input-box">
+                    <input type="text" id="alcoolQty" name="alcoolQty" placeholder="1 dia, 2 dia, 3 dia ...">
+                </div>
+
                 <div class="habits-life-inputs">
                     <div class="habits-life-title">
-                        <h3>Consumo de tabaco</h3>
+                        <h4>Consumo de tabaco</h4>
                     </div>
                     <div class="habits-life-group">
                         <input type="radio" id="sim" name="tabaco" value="sim">
@@ -172,6 +192,14 @@
                         <input type="radio" id="nao" name="tabaco" value="nao">
                         <label for="nao">Não</label>
                     </div>
+                </div>
+
+                <div class="habits-life-title">
+                    <h4>Quantas vezes você consome Tabaco na semana? </h4>
+                </div>
+    
+                <div class="input-box">
+                    <input type="text" id="alcoolQty" name="alcoolQty" placeholder="1 dia, 2 dia, 3 dia ...">
                 </div>
 
                 <div class="save-button">
