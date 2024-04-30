@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiPwaBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b285915402da700267b47872561bd416a173f09c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbaefeff20f5586f7acf101097fcbf592ddd05df")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiPwaBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiPwaBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

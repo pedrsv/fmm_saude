@@ -62,7 +62,13 @@ function handleCalculate() {
         const sistolic = parseInt(document.getElementById('sistolic').value);
         const diastolic = parseInt(document.getElementById('diastolic').value);
         const result = calculatePressao(sistolic, diastolic);
-    }
+
+        if (result.error) {
+            return result.error;
+        } 
+            return result
+        }
+
     
     function calculatePressao(sistolic, diastolic) {
         const pam = (sistolic + 2 * diastolic) / 3.0;
@@ -75,6 +81,25 @@ function handleCalculate() {
         return classification ? 
             { Classification: classification.classification, Recommendation: classification.recommendation } : 
             { Classification: "Fora dos padrões comuns", Recommendation: "Consulte um médico para avaliação detalhada." };
+    }
+
+
+    function createResult(){
+
+        const nome = document.getElementById('nome').value
+        document.getElementById('Titulo').innerHTML = `<h1>Olá, ${nome}, Muito prazer</h1>`;
+        document.getElementById('subTitulo').innerHTML = `<h2>Segue seu Resultado da Consulta: </h2>`;
+        const imcStoraged = JSON.parse(localStorage.getItem('imc'));
+        var imc = imcStoraged['IMC']
+        var imcClass = imcStoraged['Classification']
+        var imcRec = imcStoraged['Recommendation']
+        document.getElementById('IMC').innerHTML = `<h3>IMC: </h3><p>${imc}</p><p>${imcClass}</p><p>${imcRec}</p>`;
+        const pressaoStoraged = JSON.parse(localStorage.getItem('pressão'));
+        var pressure = pressaoStoraged['PAM']
+        var pressureClass = pressaoStoraged['Classification']
+        var pressureRec = pressaoStoraged ['Recommendation']
+        document.getElementById('pressure').innerHTML = `<h3>Pressão: </h3><p>${pressure} mmHg</p><p>${pressureClass}</p><p>${pressureRec}</p>`;
+
     }
 
 
@@ -96,9 +121,9 @@ function submitForm2() {
     document.getElementById('loading').style.display = 'none';
     document.getElementById('FormCalculo').style.display = 'none';
     document.getElementById('results').style.display = 'block';
-    document.getElementById('results').innerText = "<h1>Jorge<h1>"
+    createResult();
     // Oculta o formulário
-    // document.getElementById('result').innerHTML = `PAM: ${result.PAM}<br>Classificação: ${result.Classification}<br>Recomendação: ${result.Recommendation}`;
+    //  document.getElementById('result').innerHTML = `PAM: ${result.PAM}<br>Classificação: ${result.Classification}<br>Recomendação: ${result.Recommendation}`;
     // Aqui você pode exibir os resultados do formulário
 }
 
