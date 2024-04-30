@@ -1,8 +1,15 @@
 function showLoading(event) {
     event.preventDefault(); // Impede o envio padrão do formulário
     document.getElementById('loading').style.display = 'block';
-    setTimeout(submitForm, 2000); // Simulando envio do formulário
+    setTimeout(submitForm1, 2000); // Simulando envio do formulário
 }
+
+function showLoading1(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+    document.getElementById('loading').style.display = 'block';
+    setTimeout(submitForm2, 2000); // Simulando envio do formulário
+}
+
 
 const imcRanges = [
     { max: 18.5, classification: "Baixo peso", recommendation: "Atenção - Procure um médico para realização de exames que apontem a causa do baixo peso." },
@@ -55,7 +62,6 @@ function handleCalculate() {
         const sistolic = parseInt(document.getElementById('sistolic').value);
         const diastolic = parseInt(document.getElementById('diastolic').value);
         const result = calculatePressao(sistolic, diastolic);
-        document.getElementById('result').innerHTML = `PAM: ${result.PAM}<br>Classificação: ${result.Classification}<br>Recomendação: ${result.Recommendation}`;
     }
     
     function calculatePressao(sistolic, diastolic) {
@@ -71,13 +77,28 @@ function handleCalculate() {
             { Classification: "Fora dos padrões comuns", Recommendation: "Consulte um médico para avaliação detalhada." };
     }
 
-function submitForm() {
+
+function submitForm1() {
     
     // const imc =  handleCalculate();
     // const pressure =  calculate();
-
     document.getElementById('loading').style.display = 'none';
-    document.getElementById('results').style.display = 'block';
-    document.getElementById('myFormdiv').style.display = 'none'; // Oculta o formulário
+    document.getElementById('myFormdiv').style.display = 'none'; 
+    document.getElementById('FormCalculo').style.display = 'block';// Oculta o formulário
     // Aqui você pode exibir os resultados do formulário
 }
+
+
+function submitForm2() {
+    
+    localStorage.setItem('imc', JSON.stringify(handleCalculate()));
+    localStorage.setItem('pressão', JSON.stringify(calculate()));
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('FormCalculo').style.display = 'none';
+    document.getElementById('results').style.display = 'block';
+    document.getElementById('results').innerText = "<h1>Jorge<h1>"
+    // Oculta o formulário
+    // document.getElementById('result').innerHTML = `PAM: ${result.PAM}<br>Classificação: ${result.Classification}<br>Recomendação: ${result.Recommendation}`;
+    // Aqui você pode exibir os resultados do formulário
+}
+

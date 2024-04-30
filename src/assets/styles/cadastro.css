@@ -21,6 +21,11 @@
     padding-top: 20%;
 }
 
+#FormCalculo{
+    display: none;
+}
+
+
 #results {
     display: none;
     position: absolute;

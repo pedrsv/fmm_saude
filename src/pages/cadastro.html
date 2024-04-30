@@ -1,229 +1,364 @@
 <!DOCTYPE html>
 <html lang="pt">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ficha Cadastral de Saúde</title>
-    <link rel="stylesheet" href="../../src/assets/styles/cadastro.css">
- 
-</head>
+    <link rel="stylesheet" href="../../src/assets/styles/cadastro.css" />
+  </head>
 
-<body>
-    <div class="blur-bg"></div> 
+  <body>
+    <div class="blur-bg"></div>
     <div class="corner-image"></div>
 
-    
     <div class="container">
-
-         <!-- Tela de loading -->
-    <div class="loading" id="loading">
+      <!-- Tela de loading -->
+      <div class="loading" id="loading">
         <p>Carregando...</p>
+      </div>
+
+      <div id="results">
+
+            <h1>Olá Victor, Muito Prazer</h1>
+            <h3>Segue os resultados do seu Exames:</h3>
+            <span>IMC: 33, lfkajsdfklsjklafjksalfdsalfasfl;sdafsadfl;ksa</span>    
+            <span>IMC: 33, lfkajsdfklsjklafjksalfdsalfasfl;sdafsadfl;ksa</span>    
+
     </div>
 
+    <div class="form" id="FormCalculo">
+      <div class="form-header">
+        <div class="title">
+          <h1>Ficha médica</h1>
+        </div>
+      </div>
 
-    <div id="results"">
-        
-        
+      <div class="input-group">
+        <div class="input-box">
+          <label for="weight">Peso (em kg):</label>
+          <input type="number" id="weight" name="weight" min="0" required />
+        </div>
 
+        <div class="input-box">
+          <label for="height">Altura (em cm):</label>
+          <input type="number" id="height" name="height" min="0" required />
+        </div>
+
+        <div class="input-box">
+          <label for="sistolic">Pressão Sistolica (mmHg):</label>
+          <input type="number" id="sistolic" name="sistolic" required />
+        </div>
+
+        <div class="input-box">
+          <label for="diastolic">Pressão Diastolica (mmHg):</label>
+          <input type="number" id="diastolic" name="diastolic" required />
+        </div>
+
+        <div class="save-button">
+          <button type="button" onclick="showLoading1(event)">
+            Calcular IMC
+          </button>
+        </div>
+      </div>
     </div>
 
-        <div class="form" id="myFormdiv">
-            <form id ="myForm">
-
-                <div class="form-header">
-                    <div class="title">
-                        <h1>Ficha Cadastral</h1>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <div class="input-box">
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
-                    </div>
-                    <div class="input-box">
-                        <label for="CPF">CPF:</label>
-                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
-                    </div>
-                    <div class="input-box">
-                        <label for="email">Email:</label>
-                        <input type="text" id="email" name="email" placeholder="seuemail@email.com" required>
-                    </div>
-                    
-                    <div class="input-box">
-                        <label for="data_nascimento">Data de Nascimento:</label>
-                        <input type="date" id="data_nascimento" name="data_nascimento" required>
-                    </div>
-                </div>
-
-                <div class="gender-inputs inline">
-                    <div class="gender-title">
-                        <h4>Gênero:</h4>
-                    </div>
-                    <div class="gender-group">
-                        <select name="gender-select" id="gender-select">
-                            <option value="Feminino">Feminino</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Não Informar">Não Informar</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="diseases-previous-inputs">
-                    <div class="diseases-family-title">
-                        <h4>Doenças atuais/anteriores</h4>
-                    </div>
-                    <div class="diseases-previous-group">
-                        <input type="checkbox" id="cardiaca" name="doencas" value="Cardíaca">
-                        <label for="cardiaca">Cardíaca</label>
-                    </div>
-
-                    <div class="diseases-previous-group">
-                        <input type="checkbox" id="renal" name="doencas" value="Renal">
-                        <label for="renal">Renal</label>
-                    </div>
-
-                    <div class="diseases-previous-group">
-                        <input type="checkbox" id="neurologica" name="doencas" value="Neurológica">
-                        <label for="neurologica">Neurológica</label>
-                    </div>
-
-                    <div class="diseases-previous-group">
-                        <input type="checkbox" id="muscular" name="doencas" value="Muscular">
-                        <label for="muscular">Muscular</label>
-                    </div>
-
-                    <div class="diseases-previous-group">
-                        <input type="checkbox" id="ortopedica" name="doencas" value="Ortopédica">
-                        <label for="ortopedica">Ortopédica</label>
-                    </div>
-
-                    <div class="diseases-previous-group">
-                        <input type="checkbox" id="nenhuma" name="doencas" value="Nenhuma">
-                        <label for="nenhuma">Nenhuma</label>
-                    </div>
-                </div>
-
-                <div class="diseases-family-inputs">
-                    <div class="diseases-family-title">
-                        <h4>Doenças Familiares</h4>
-                    </div>
-                    <div class="diseases-family-group">
-                        <input type="checkbox" id="cardiacas" name="doencas_familiares" value="Cardíaca">
-                        <label for="cardiacas">Cardíaca</label>
-                    </div>
-
-                    <div class="diseases-family-group">
-                        <input type="checkbox" id="renais" name="doencas_familiares" value="Renal">
-                        <label for="renais">Renal</label>
-                    </div>
-
-                    <div class="diseases-family-group">
-                        <input type="checkbox" id="neurologicas" name="doencas_familiares" value="Neurológica">
-                        <label for="neurologicas">Neurológica</label>
-                    </div>
-
-                    <div class="diseases-family-group">
-                        <input type="checkbox" id="musculares" name="doencas_familiares" value="Muscular">
-                        <label for="musculares">Muscular</label>
-                    </div>
-
-                    <div class="diseases-family-group">
-                        <input type="checkbox" id="ortopedicas" name="doencas_familiares" value="Ortopédica">
-                        <label for="ortopedicas">Ortopédica</label>
-                    </div>
-
-                    <div class="diseases-family-group">
-
-                        <input type="checkbox" id="nenhumas" name="doencas_familiares" value="Nenhuma">
-                        <label for="nenhumas">Nenhuma</label>
-                    </div>
-
+      <div class="form" id="myFormdiv">
+        <form id="myForm">
+          <div class="form-header">
+            <div class="title">
+              <h1>Ficha Cadastral</h1>
             </div>
+          </div>
 
-            <div class="diseases-family-title">
-                <h4>Grau de Parentesco das Doenças Familiares </h4>
+          <div class="input-group">
+            <div class="input-box">
+              <label for="nome">Nome:</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Nome Completo"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="CPF">CPF:</label>
+              <input
+                type="text"
+                name="CPF"
+                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                title="Digite um CPF no formato: xxx.xxx.xxx-xx"
+              />
+            </div>
+            <div class="input-box">
+              <label for="email">Email:</label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="seuemail@email.com"
+                required
+              />
             </div>
 
             <div class="input-box">
-                <input type="text" id="diseases-family" name="diseases-family" placeholder="pai, mãe, avós, irmão ...">
+              <label for="data_nascimento">Data de Nascimento:</label>
+              <input
+                type="date"
+                id="data_nascimento"
+                name="data_nascimento"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="gender-inputs inline">
+            <div class="gender-title">
+              <h4>Gênero:</h4>
+            </div>
+            <div class="gender-group">
+              <select name="gender-select" id="gender-select">
+                <option value="Feminino">Feminino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Não Informar">Não Informar</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="diseases-previous-inputs">
+            <div class="diseases-family-title">
+              <h4>Doenças atuais/anteriores</h4>
+            </div>
+            <div class="diseases-previous-group">
+              <input
+                type="checkbox"
+                id="cardiaca"
+                name="doencas"
+                value="Cardíaca"
+              />
+              <label for="cardiaca">Cardíaca</label>
             </div>
 
+            <div class="diseases-previous-group">
+              <input type="checkbox" id="renal" name="doencas" value="Renal" />
+              <label for="renal">Renal</label>
+            </div>
 
-                <div class="comorbidade-inputs">
-                    <div class="comorbidade-title">
-                        <h4>Comorbidades preexistentes</h4>
-                    </div>
-                    <div class="comorbidade-group">
-                        <input type="checkbox" id="hipertensao" name="comorbidades" value="Hipertensão">
-                        <label for="hipertensao">Hipertensão</label>
-                    </div>
-                    <div class="comorbidade-group">
-                        <input type="checkbox" id="diabetes" name="comorbidades" value="Diabetes">
-                        <label for="diabetes">Diabetes</label>
-                    </div>
-                    <div class="comorbidade-group">
-                        <input type="checkbox" id="nenhumas1" name="comorbidades" value="Nenhuma">
-                        <label for="nenhumas1">Nenhuma</label>
-                    </div>
-                </div>
+            <div class="diseases-previous-group">
+              <input
+                type="checkbox"
+                id="neurologica"
+                name="doencas"
+                value="Neurológica"
+              />
+              <label for="neurologica">Neurológica</label>
+            </div>
 
-                <div class="habits-life-inputs">
-                    <div class="habits-life-title">
-                        <h4>Consumo de álcool</h4>
-                    </div>
-                    <div class="habits-life-group">
-                        <input type="radio" id="sim" name="alcool" value="sim">
-                        <label for="sim">Sim</label>
-                    </div>
-                    <div class="habits-life-group">
-                        <input type="radio" id="nao" name="alcool" value="nao">
-                        <label for="nao">Não</label>
-                    </div>
-                </div>
+            <div class="diseases-previous-group">
+              <input
+                type="checkbox"
+                id="muscular"
+                name="doencas"
+                value="Muscular"
+              />
+              <label for="muscular">Muscular</label>
+            </div>
 
-                <div class="habits-life-title">
-                    <h4>Quantas vezes você consome alcool na semana? </h4>
-                </div>
-    
-                <div class="input-box">
-                    <input type="text" id="alcoolQty" name="alcoolQty" placeholder="1 dia, 2 dia, 3 dia ...">
-                </div>
+            <div class="diseases-previous-group">
+              <input
+                type="checkbox"
+                id="ortopedica"
+                name="doencas"
+                value="Ortopédica"
+              />
+              <label for="ortopedica">Ortopédica</label>
+            </div>
 
-                <div class="habits-life-inputs">
-                    <div class="habits-life-title">
-                        <h4>Consumo de tabaco</h4>
-                    </div>
-                    <div class="habits-life-group">
-                        <input type="radio" id="sim" name="tabaco" value="sim">
-                        <label for="sim">Sim</label>
-                    </div>
-                    <div class="habits-life-group">
-                        <input type="radio" id="nao" name="tabaco" value="nao">
-                        <label for="nao">Não</label>
-                    </div>
-                </div>
+            <div class="diseases-previous-group">
+              <input
+                type="checkbox"
+                id="nenhuma"
+                name="doencas"
+                value="Nenhuma"
+              />
+              <label for="nenhuma">Nenhuma</label>
+            </div>
+          </div>
 
-                <div class="habits-life-title">
-                    <h4>Quantas vezes você consome Tabaco na semana? </h4>
-                </div>
-    
-                <div class="input-box">
-                    <input type="text" id="alcoolQty" name="alcoolQty" placeholder="1 dia, 2 dia, 3 dia ...">
-                </div>
+          <div class="diseases-family-inputs">
+            <div class="diseases-family-title">
+              <h4>Doenças Familiares</h4>
+            </div>
+            <div class="diseases-family-group">
+              <input
+                type="checkbox"
+                id="cardiacas"
+                name="doencas_familiares"
+                value="Cardíaca"
+              />
+              <label for="cardiacas">Cardíaca</label>
+            </div>
 
-                <div class="save-button">
-                    <button type="submit" value="Enviar" onclick="showLoading(event)">Enviar</button>
-                </div>
-            </form>
-        </div>
+            <div class="diseases-family-group">
+              <input
+                type="checkbox"
+                id="renais"
+                name="doencas_familiares"
+                value="Renal"
+              />
+              <label for="renais">Renal</label>
+            </div>
+
+            <div class="diseases-family-group">
+              <input
+                type="checkbox"
+                id="neurologicas"
+                name="doencas_familiares"
+                value="Neurológica"
+              />
+              <label for="neurologicas">Neurológica</label>
+            </div>
+
+            <div class="diseases-family-group">
+              <input
+                type="checkbox"
+                id="musculares"
+                name="doencas_familiares"
+                value="Muscular"
+              />
+              <label for="musculares">Muscular</label>
+            </div>
+
+            <div class="diseases-family-group">
+              <input
+                type="checkbox"
+                id="ortopedicas"
+                name="doencas_familiares"
+                value="Ortopédica"
+              />
+              <label for="ortopedicas">Ortopédica</label>
+            </div>
+
+            <div class="diseases-family-group">
+              <input
+                type="checkbox"
+                id="nenhumas"
+                name="doencas_familiares"
+                value="Nenhuma"
+              />
+              <label for="nenhumas">Nenhuma</label>
+            </div>
+          </div>
+
+          <div class="diseases-family-title">
+            <h4>Grau de Parentesco das Doenças Familiares</h4>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="text"
+              id="diseases-family"
+              name="diseases-family"
+              placeholder="pai, mãe, avós, irmão ..."
+            />
+          </div>
+
+          <div class="comorbidade-inputs">
+            <div class="comorbidade-title">
+              <h4>Comorbidades preexistentes</h4>
+            </div>
+            <div class="comorbidade-group">
+              <input
+                type="checkbox"
+                id="hipertensao"
+                name="comorbidades"
+                value="Hipertensão"
+              />
+              <label for="hipertensao">Hipertensão</label>
+            </div>
+            <div class="comorbidade-group">
+              <input
+                type="checkbox"
+                id="diabetes"
+                name="comorbidades"
+                value="Diabetes"
+              />
+              <label for="diabetes">Diabetes</label>
+            </div>
+            <div class="comorbidade-group">
+              <input
+                type="checkbox"
+                id="nenhumas1"
+                name="comorbidades"
+                value="Nenhuma"
+              />
+              <label for="nenhumas1">Nenhuma</label>
+            </div>
+          </div>
+
+          <div class="habits-life-inputs">
+            <div class="habits-life-title">
+              <h4>Consumo de álcool</h4>
+            </div>
+            <div class="habits-life-group">
+              <input type="radio" id="sim" name="alcool" value="sim" />
+              <label for="sim">Sim</label>
+            </div>
+            <div class="habits-life-group">
+              <input type="radio" id="nao" name="alcool" value="nao" />
+              <label for="nao">Não</label>
+            </div>
+          </div>
+
+          <div class="habits-life-title">
+            <h4>Quantas vezes você consome alcool na semana?</h4>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="text"
+              id="alcoolQty"
+              name="alcoolQty"
+              placeholder="1 dia, 2 dia, 3 dia ..."
+            />
+          </div>
+
+          <div class="habits-life-inputs">
+            <div class="habits-life-title">
+              <h4>Consumo de tabaco</h4>
+            </div>
+            <div class="habits-life-group">
+              <input type="radio" id="sim" name="tabaco" value="sim" />
+              <label for="sim">Sim</label>
+            </div>
+            <div class="habits-life-group">
+              <input type="radio" id="nao" name="tabaco" value="nao" />
+              <label for="nao">Não</label>
+            </div>
+          </div>
+
+          <div class="habits-life-title">
+            <h4>Quantas vezes você consome Tabaco na semana?</h4>
+          </div>
+
+          <div class="input-box">
+            <input
+              type="text"
+              id="alcoolQty"
+              name="alcoolQty"
+              placeholder="1 dia, 2 dia, 3 dia ..."
+            />
+          </div>
+
+          <div class="save-button">
+            <button type="submit" value="Enviar" onclick="showLoading(event)">
+              Enviar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <script src="/src/app.js"></script>
-
-</body>
-
-
-    
+  </body>
 </html>
