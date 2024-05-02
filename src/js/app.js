@@ -222,7 +222,7 @@ function createResult() {
 
     // Textos a serem digitados
     const tituloText = `Olá, ${nome}, Muito prazer`;
-    const subTituloText = `Segue seu Ficha Cadastral: `;
+    const subTituloText = `Segue sua Ficha Cadastral: `;
 
     // Função para simular digitação com callback
     function typeWriter(text, element, delay, callback) {
@@ -244,22 +244,53 @@ function createResult() {
     subTituloElement.innerHTML = '';
 
     // Simula a digitação do título
-    typeWriter(tituloText, tituloElement, 100, function() {
+    typeWriter(tituloText, tituloElement, 50, function() {
         // Simula a digitação do subtítulo após o título ser totalmente digitado
-        typeWriter(subTituloText, subTituloElement, 100, function() {
+        typeWriter(subTituloText, subTituloElement, 50, function() {
             // Restante do seu código
 
-            const data_Nascimento = document.getElementById("data_nascimento").value
+            var data_Nascimento = document.getElementById("data_nascimento").value
             const idade = calcularIdade(data_Nascimento)
             const genero = document.getElementById("gender-select").value
 
             document.getElementById("Dados").innerHTML = `
-            <p><b>Nome:</b>${nome}</p>
-            <p><b>Idade:</b>${idade}</p>
-            <p><b>Genero:</b>${genero}</p>
+            <p><b>Nome: </b>${nome}</p>
+            <p><b>Idade: </b>${idade}</p>
+            <p><b>Genero: </b>${genero}</p>
             `
 
+            const checkboxes = document.querySelectorAll('input[name="doencas"]:checked');
 
+            // Cria um array para armazenar os valores selecionados
+            const values = [];
+
+            // Itera sobre os checkboxes selecionados e adiciona seus valores ao array
+            checkboxes.forEach((checkbox) => {
+            values.push(checkbox.value);
+            });
+
+            // Exibe os valores selecionados
+            const doencasLabel = document.getElementById('Doencas-existentes-label');
+            doencasLabel.textContent = "Doenças Atuais ou Anteriores: "
+            const doencasValue = document.getElementById('Doencas-existentes-value');
+            doencasValue.textContent = values.join(', ');
+
+            const checkboxes2 = document.querySelectorAll('input[name="doencas"]:checked');
+
+            // Cria um array para armazenar os valores selecionados
+            const values2 = [];
+
+            // Itera sobre os checkboxes selecionados e adiciona seus valores ao array
+            checkboxes2.forEach((checkbox) => {
+            values2.push(checkbox.value);
+            });
+
+            // Exibe os valores selecionados
+            const doencasLabel = document.getElementById('Doencas-existentes-label');
+            doencasLabel.textContent = "Doenças Atuais ou Anteriores: "
+            const doencasValue = document.getElementById('Doencas-existentes-value');
+            doencasValue.textContent = values.join(', ');
+            
             
 
 

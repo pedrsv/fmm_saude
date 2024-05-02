@@ -10,16 +10,16 @@
 
 @keyframes fadeInOut {
     0% { opacity: 0; }
+    25% { opacity: 1; }
     50% { opacity: 1; }
-    75% {opacity: 0.6;}
-    80% {opacity: 0.3;}
-    90% {opacity: 0.2;}
+    75% { opacity: 1; }
     100% { opacity: 0; }
 }
 
 .loading {
     display: none;
     position: fixed;
+    z-index: 99999;
     top: 0;
     left: 0;
     width: 100%;
@@ -27,17 +27,11 @@
     background-color: rgba(255, 255, 255, 1);
     justify-content: center;
     align-items: center;
-    animation: fadeInOut 5s infinite;
+    animation: fadeInOut 4s infinite;
 }
 
 .loading p {
     font-size: 20px;
-}
-
-.loading.fade-out {
-    animation-name: none; /* Remove a animação fadeInOut */
-    opacity: 0; /* Garante que a opacidade seja 0 */
-    transition: opacity 0.5s; /* Adiciona uma transição suave de opacidade */
 }
 
 #FormCalculo{
