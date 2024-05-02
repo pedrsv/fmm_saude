@@ -89,12 +89,13 @@
                 id = "CPF"
                 pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
                 title="Digite um CPF no formato: xxx.xxx.xxx-xx"
+                placeholder="123.456.879-01"
               />
             </div>
             <div class="input-box">
               <label for="email">Email:</label>
               <input
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 placeholder="seuemail@email.com"
@@ -306,22 +307,24 @@
               <label for="sim">Sim</label>
             </div>
             <div class="habits-life-group">
-              <input type="radio" id="nao" name="alcool" value="nao" />
+              <input type="radio" id="nao " name="alcool" value="nao" />
               <label for="nao">Não</label>
             </div>
           </div>
 
-          <div class="habits-life-title">
-            <h4>Quantas vezes você consome alcool na semana?</h4>
-          </div>
-
-          <div class="input-box">
-            <input
-              type="text"
-              id="alcoolQty"
-              name="alcoolQty"
-              placeholder="1 dia, 2 dia, 3 dia ..."
-            />
+          <div class="habits-life-inputs">
+            <div class="habits-life-title">
+              <h4>Quantas vezes você consome álcool na semana?</h4>
+            </div>
+            <div class="habits-life-group">
+              <select name="habits-life-select" id="habits-life-select">
+                <option value="Nenhuma">Nenhuma</option>
+                <option value="Quase nunca">Quase nunca</option>
+                <option value="Socialmente">Socialmente</option>
+                <option value="Quase Todos os dias">Quase Todos os dias</option>
+                <option value="Todo dia">Todo dia</option>
+              </select>
+            </div>
           </div>
 
           <div class="habits-life-inputs">
@@ -337,19 +340,52 @@
               <label for="nao">Não</label>
             </div>
           </div>
+          
+            <div class="habits-life-inputs">
+              <div class="habits-life-title">
+                <h4>Quantas vezes você consome tabaco na semana?</h4>
+              </div>
+              <div class="habits-life-group">
+                <select name="habits-life-select" id="habits-life-select">
+                  <option value="Nenhuma">Nenhuma</option>
+                  <option value="Quase nunca">Quase nunca</option>
+                  <option value="Socialmente">Socialmente</option>
+                  <option value="Quase Todos os dias">Quase Todos os dias</option>
+                  <option value="Todo dia">Todo dia</option>
+                </select>
+              </div>
+            </div>
 
-          <div class="habits-life-title">
-            <h4>Quantas vezes você consome Tabaco na semana?</h4>
-          </div>
 
-          <div class="input-box">
-            <input
-              type="text"
-              id="alcoolQty"
-              name="alcoolQty"
-              placeholder="1 dia, 2 dia, 3 dia ..."
-            />
-          </div>
+            <div class="habits-life-inputs">
+              <div class="habits-life-title">
+                <h4>Pratica Exercicios?</h4>
+              </div>
+              <div class="habits-life-group">
+                <input type="radio" id="sim" name="tabaco" value="sim" />
+                <label for="sim">Sim</label>
+              </div>
+              <div class="habits-life-group">
+                <input type="radio" id="nao" name="tabaco" value="nao" />
+                <label for="nao">Não</label>
+              </div>
+            </div>
+            
+              <div class="habits-life-inputs">
+                <div class="habits-life-title">
+                  <h4>Quantas vezes você pratica exercicios na semana?</h4>
+                </div>
+                <div class=".habits-life-group">
+                  <select name="habits-life-select" id="habits-life-select">
+                    <option value="Nenhuma">Nenhuma</option>
+                    <option value="Quase nunca">Quase nunca</option>
+                    <option value="Socialmente">Socialmente</option>
+                    <option value="Quase Todos os dias">Quase Todos os dias</option>
+                    <option value="Todo dia">Todo dia</option>
+                  </select>
+                </div>
+              </div>
+
 
           <div class="save-button">
             <button type="submit" value="Enviar" onclick="showLoading(event)">
@@ -360,6 +396,6 @@
       </div>
     </div>
 
-    <script src="/src/app.js"></script>
+    <script src="/src/js/app.js"></script>
   </body>
 </html>
