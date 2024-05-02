@@ -9,58 +9,66 @@
 
   <body>
     <div class="blur-bg"></div>
-    <div class="corner-image"></div>
 
     <div class="container">
+      <div class="corner-image"></div>
       <!-- Tela de loading -->
       <div class="loading" id="loading">
         <p>Carregando...</p>
       </div>
 
       <div id="results">
-
-        <div id="Titulo"></div>
-        <div id="subTitulo"></div>
-        <div id="IMC"></div>
-        <div id="pressure"></div>
-        
-      </div>
-
-    <div class="form" id="FormCalculo">
-      <div class="form-header">
-        <div class="title">
-          <h1>Ficha médica</h1>
+        /
+        <div><h1 id="Titulo"></h1></div>
+        <div><h3 id="subTitulo"></h3></div>
+        <div class="fichaCadastral">
+          <div id="Dados"></div>
+          <div id= "Doenças"></div>
+          <div id = "Habits"></div>
+        </div>
+        <div class="resultado">
+          <div id="IMC"></div>
+        </div>
+        <div class="resultado">
+          <div id="pressure"></div>
         </div>
       </div>
 
-      <div class="input-group">
-        <div class="input-box">
-          <label for="weight">Peso (em kg):</label>
-          <input type="number" id="weight" name="weight" min="0" required />
+      <div class="form" id="FormCalculo">
+        <div class="form-header">
+          <div class="title">
+            <h1>Ficha médica</h1>
+          </div>
         </div>
 
-        <div class="input-box">
-          <label for="height">Altura (em cm):</label>
-          <input type="number" id="height" name="height" min="0" required />
-        </div>
+        <div class="input-group">
+          <div class="input-box">
+            <label for="weight">Peso (em kg):</label>
+            <input type="number" id="weight" name="weight" min="0" required />
+          </div>
 
-        <div class="input-box">
-          <label for="sistolic">Pressão Sistolica (mmHg):</label>
-          <input type="number" id="sistolic" name="sistolic" required />
-        </div>
+          <div class="input-box">
+            <label for="height">Altura (em cm):</label>
+            <input type="number" id="height" name="height" min="0" required />
+          </div>
 
-        <div class="input-box">
-          <label for="diastolic">Pressão Diastolica (mmHg):</label>
-          <input type="number" id="diastolic" name="diastolic" required />
-        </div>
+          <div class="input-box">
+            <label for="sistolic">Pressão Sistolica (mmHg):</label>
+            <input type="number" id="sistolic" name="sistolic" required />
+          </div>
 
-        <div class="save-button">
-          <button type="button" onclick="showLoading1(event)">
-            Continuar
-          </button>
+          <div class="input-box">
+            <label for="diastolic">Pressão Diastolica (mmHg):</label>
+            <input type="number" id="diastolic" name="diastolic" required />
+          </div>
+
+          <div class="save-button">
+            <button type="button" onclick="showLoading1(event)">
+              Continuar
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
       <div class="form" id="myFormdiv">
         <form id="myForm">
@@ -86,7 +94,7 @@
               <input
                 type="text"
                 name="CPF"
-                id = "CPF"
+                id="CPF"
                 pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
                 title="Digite um CPF no formato: xxx.xxx.xxx-xx"
                 placeholder="123.456.879-01"
@@ -340,56 +348,54 @@
               <label for="nao">Não</label>
             </div>
           </div>
-          
-            <div class="habits-life-inputs">
-              <div class="habits-life-title">
-                <h4>Quantas vezes você consome tabaco na semana?</h4>
-              </div>
-              <div class="habits-life-group">
-                <select name="habits-life-select" id="habits-life-select">
-                  <option value="Nenhuma">Nenhuma</option>
-                  <option value="Quase nunca">Quase nunca</option>
-                  <option value="Socialmente">Socialmente</option>
-                  <option value="Quase Todos os dias">Quase Todos os dias</option>
-                  <option value="Todo dia">Todo dia</option>
-                </select>
-              </div>
+
+          <div class="habits-life-inputs">
+            <div class="habits-life-title">
+              <h4>Quantas vezes você consome tabaco na semana?</h4>
             </div>
-
-
-            <div class="habits-life-inputs">
-              <div class="habits-life-title">
-                <h4>Pratica Exercicios?</h4>
-              </div>
-              <div class="habits-life-group">
-                <input type="radio" id="sim" name="tabaco" value="sim" />
-                <label for="sim">Sim</label>
-              </div>
-              <div class="habits-life-group">
-                <input type="radio" id="nao" name="tabaco" value="nao" />
-                <label for="nao">Não</label>
-              </div>
+            <div class="habits-life-group">
+              <select name="habits-life-select" id="habits-life-select">
+                <option value="Nenhuma">Nenhuma</option>
+                <option value="Quase nunca">Quase nunca</option>
+                <option value="Socialmente">Socialmente</option>
+                <option value="Quase Todos os dias">Quase Todos os dias</option>
+                <option value="Todo dia">Todo dia</option>
+              </select>
             </div>
-            
-              <div class="habits-life-inputs">
-                <div class="habits-life-title">
-                  <h4>Quantas vezes você pratica exercicios na semana?</h4>
-                </div>
-                <div class=".habits-life-group">
-                  <select name="habits-life-select" id="habits-life-select">
-                    <option value="Nenhuma">Nenhuma</option>
-                    <option value="Quase nunca">Quase nunca</option>
-                    <option value="Socialmente">Socialmente</option>
-                    <option value="Quase Todos os dias">Quase Todos os dias</option>
-                    <option value="Todo dia">Todo dia</option>
-                  </select>
-                </div>
-              </div>
+          </div>
 
+          <div class="habits-life-inputs">
+            <div class="habits-life-title">
+              <h4>Pratica Exercicios?</h4>
+            </div>
+            <div class="habits-life-group">
+              <input type="radio" id="sim" name="tabaco" value="sim" />
+              <label for="sim">Sim</label>
+            </div>
+            <div class="habits-life-group">
+              <input type="radio" id="nao" name="tabaco" value="nao" />
+              <label for="nao">Não</label>
+            </div>
+          </div>
+
+          <div class="habits-life-inputs">
+            <div class="habits-life-title">
+              <h4>Quantas vezes você pratica exercicios na semana?</h4>
+            </div>
+            <div class=".habits-life-group">
+              <select name="habits-life-select" id="habits-life-select">
+                <option value="Nenhuma">Nenhuma</option>
+                <option value="Quase nunca">Quase nunca</option>
+                <option value="Socialmente">Socialmente</option>
+                <option value="Quase Todos os dias">Quase Todos os dias</option>
+                <option value="Todo dia">Todo dia</option>
+              </select>
+            </div>
+          </div>
 
           <div class="save-button">
             <button type="submit" value="Enviar" onclick="showLoading(event)">
-             Continuar
+              Continuar
             </button>
           </div>
         </form>

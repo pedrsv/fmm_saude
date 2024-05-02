@@ -8,6 +8,15 @@
     font-family: 'Poppins', sans-serif;
 }
 
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    75% {opacity: 0.6;}
+    80% {opacity: 0.3;}
+    90% {opacity: 0.2;}
+    100% { opacity: 0; }
+}
+
 .loading {
     display: none;
     position: fixed;
@@ -15,10 +24,20 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: white;
-    z-index: 9999;
-    text-align: center;
-    padding-top: 20%;
+    background-color: rgba(255, 255, 255, 1);
+    justify-content: center;
+    align-items: center;
+    animation: fadeInOut 5s infinite;
+}
+
+.loading p {
+    font-size: 20px;
+}
+
+.loading.fade-out {
+    animation-name: none; /* Remove a animação fadeInOut */
+    opacity: 0; /* Garante que a opacidade seja 0 */
+    transition: opacity 0.5s; /* Adiciona uma transição suave de opacidade */
 }
 
 #FormCalculo{
@@ -96,6 +115,7 @@ body{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 100%;
+ 
 }
 
 .form-header {
@@ -111,6 +131,7 @@ body{
 .habits-life-inputs {
     margin-bottom: 15px;
 }
+
 
 .input-box,
 .gender-select,

@@ -8,7 +8,8 @@ function showLoading(event) {
         event.preventDefault();
 
         // Exibe o elemento de loading na página
-        document.getElementById("loading").style.display = "block";
+        document.getElementById("loading").style.display = "flex";
+    
 
         // Simula o envio do formulário após 2 segundos
         setTimeout(submitForm1, 2000);
@@ -18,9 +19,10 @@ function showLoading(event) {
     }
 }
 
+
 function showLoading1(event) {
     event.preventDefault(); // Impede o envio padrão do formulário
-    document.getElementById("loading").style.display = "block";
+    document.getElementById("loading").style.display = "flex";;
     setTimeout(submitForm2, 2000); // Simulando envio do formulário
 }
 
@@ -196,25 +198,90 @@ function classifyPressao(sistolic, diastolic) {
         };
 }
 
+function calcularIdade(dataNascimento) {
+    const hoje = new Date();
+    const nascimento = new Date(dataNascimento);
+    
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+    const mesAtual = hoje.getMonth();
+    const diaAtual = hoje.getDate();
+    const mesNascimento = nascimento.getMonth();
+    const diaNascimento = nascimento.getDate();
+    
+    if (mesAtual < mesNascimento || (mesAtual === mesNascimento && diaAtual < diaNascimento)) {
+        idade--;
+    }
+    
+    return idade;
+}
+
 function createResult() {
     const nome = document.getElementById("nome").value;
-    document.getElementById("Titulo").innerHTML = `<h1>Olá, ${nome}, Muito prazer</h1>`;
-    document.getElementById("subTitulo").innerHTML = `<h2>Segue seu Resultado da Consulta: </h2>`;
-    const imcStoraged = JSON.parse(localStorage.getItem("imc"));
-    var imc = imcStoraged["IMC"];
-    var imcClass = imcStoraged["Classification"];
-    var imcRec = imcStoraged["Recommendation"];
-    document.getElementById(
-        "IMC"
-    ).innerHTML = `<h3>IMC: </h3><p>${imc}</p><p>${imcClass}</p><p>${imcRec}</p>`;
-    const pressaoStoraged = JSON.parse(localStorage.getItem("pressão"));
-    var pressure = pressaoStoraged["PAM"];
-    var pressureClass = pressaoStoraged["Classification"];
-    var pressureRec = pressaoStoraged["Recommendation"];
-    document.getElementById(
-        "pressure"
-    ).innerHTML = `<h3>Pressão: </h3><p>${pressure} mmHg</p><p>${pressureClass}</p><p>${pressureRec}</p>`;
+    const tituloElement = document.getElementById("Titulo");
+    const subTituloElement = document.getElementById("subTitulo");
+
+    // Textos a serem digitados
+    const tituloText = `Olá, ${nome}, Muito prazer`;
+    const subTituloText = `Segue seu Ficha Cadastral: `;
+
+    // Função para simular digitação com callback
+    function typeWriter(text, element, delay, callback) {
+        let index = 0;
+        const interval = setInterval(function() {
+            element.textContent += text[index];
+            index++;
+            if (index >= text.length) {
+                clearInterval(interval);
+                if (callback) {
+                    callback();
+                }
+            }
+        }, delay);
+    }
+
+    // Limpa o conteúdo anterior
+    tituloElement.innerHTML = '';
+    subTituloElement.innerHTML = '';
+
+    // Simula a digitação do título
+    typeWriter(tituloText, tituloElement, 100, function() {
+        // Simula a digitação do subtítulo após o título ser totalmente digitado
+        typeWriter(subTituloText, subTituloElement, 100, function() {
+            // Restante do seu código
+
+            const data_Nascimento = document.getElementById("data_nascimento").value
+            const idade = calcularIdade(data_Nascimento)
+            const genero = document.getElementById("gender-select").value
+
+            document.getElementById("Dados").innerHTML = `
+            <p><b>Nome:</b>${nome}</p>
+            <p><b>Idade:</b>${idade}</p>
+            <p><b>Genero:</b>${genero}</p>
+            `
+
+
+            
+
+
+            // const imcStoraged = JSON.parse(localStorage.getItem("imc"));
+            // var imc = imcStoraged["IMC"];
+            // var imcClass = imcStoraged["Classification"];
+            // var imcRec = imcStoraged["Recommendation"];
+            // document.getElementById(
+            //     "IMC"
+            // ).innerHTML = `<h3>IMC: </h3><p>${imc}</p><p>${imcClass}</p><p>${imcRec}</p>`;
+            // const pressaoStoraged = JSON.parse(localStorage.getItem("pressão"));
+            // var pressure = pressaoStoraged["PAM"];
+            // var pressureClass = pressaoStoraged["Classification"];
+            // var pressureRec = pressaoStoraged["Recommendation"];
+            // document.getElementById(
+            //     "pressure"
+            // ).innerHTML = `<h3>Pressão: </h3><p>${pressure} mmHg</p><p>${pressureClass}</p><p>${pressureRec}</p>`;
+        });
+    });
 }
+
+
 
 function submitForm1() {
     document.getElementById("loading").style.display = "none";
