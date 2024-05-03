@@ -215,7 +215,7 @@ function calcularIdade(dataNascimento) {
     return idade;
 }
 
-function createResult() {
+function createFichaCadastral() {
     const nome = document.getElementById("nome").value;
     const tituloElement = document.getElementById("Titulo");
     const subTituloElement = document.getElementById("subTitulo");
@@ -259,59 +259,153 @@ function createResult() {
             <p><b>Genero: </b>${genero}</p>
             `
 
-            const checkboxes = document.querySelectorAll('input[name="doencas"]:checked');
+            const checkboxesDoencas = document.querySelectorAll('input[name="doencas"]:checked');
+            const valuesDoencas = [];
+            checkboxesDoencas.forEach((checkboxDoencas) => {
+            valuesDoencas.push(checkboxDoencas.value);
+            });
+            // Exibe os valores selecionados
+            document.getElementById('Doencas-existentes-label').textContent = "Doenças Atuais ou Anteriores: "
+            document.getElementById('Doencas-existentes-value').textContent = valuesDoencas.join(', ');
 
-            // Cria um array para armazenar os valores selecionados
-            const values = [];
 
-            // Itera sobre os checkboxes selecionados e adiciona seus valores ao array
-            checkboxes.forEach((checkbox) => {
-            values.push(checkbox.value);
+            const checkboxesDoencasFamilia = document.querySelectorAll('input[name="doencas_familiares"]:checked');
+            const valuesDoencasFamilia = [];
+            checkboxesDoencasFamilia.forEach((checkboxeDoencasFamilia) => {
+            valuesDoencasFamilia.push(checkboxeDoencasFamilia.value);
+            });
+            // Exibe os valores selecionados
+            document.getElementById('Doencas-familiares-label').textContent = "Doenças Familiares: ";
+            document.getElementById('Doencas-familiares-value').textContent = valuesDoencasFamilia.join(', ');
+            
+            const grauParentescoSelect = document.getElementById("diseases-family-select").value
+            document.getElementById('Grau-de-Parentesco-label').textContent = "Grau de Parentesco: "
+            document.getElementById('Grau-de-Parentesco-value').textContent = grauParentescoSelect
+
+            const checkboxesComorbidades = document.querySelectorAll('input[name="comorbidades"]:checked');
+            const valuesComorbidades = [];
+            checkboxesComorbidades.forEach((checkboxComorbidades) => {
+            valuesComorbidades.push(checkboxComorbidades.value);
+            });
+            // Exibe os valores selecionados
+            document.getElementById('Comorbidades-label').textContent = "Cormobidades: ";
+            document.getElementById('Comorbidades-value').textContent = valuesComorbidades.join(', ');
+
+
+            const radiosAlcool = document.querySelectorAll('input[name="alcool"]');
+
+            let valorAlcool = null;
+
+                // Itera sobre os radios para verificar qual está selecionado
+            radiosAlcool.forEach(radioAlcool => {
+            if (radioAlcool.checked) {
+                valorAlcool = radioAlcool.value;
+            }
             });
 
-            // Exibe os valores selecionados
-            const doencasLabel = document.getElementById('Doencas-existentes-label');
-            doencasLabel.textContent = "Doenças Atuais ou Anteriores: "
-            const doencasValue = document.getElementById('Doencas-existentes-value');
-            doencasValue.textContent = values.join(', ');
+            document.getElementById('Habits-Alcool-label').textContent = "Consumo de Alcool: ";
+            document.getElementById('Habits-Alcool-value').textContent = valorAlcool;
 
-            const checkboxes2 = document.querySelectorAll('input[name="doencas"]:checked');
+            const radiosTabaco = document.querySelectorAll('input[name="tabaco"]');
 
-            // Cria um array para armazenar os valores selecionados
-            const values2 = [];
+            let valorTabaco = null;
 
-            // Itera sobre os checkboxes selecionados e adiciona seus valores ao array
-            checkboxes2.forEach((checkbox) => {
-            values2.push(checkbox.value);
+                // Itera sobre os radios para verificar qual está selecionado
+            radiosTabaco.forEach(radioTabaco => {
+            if (radioTabaco.checked) {
+                valorTabaco = radioTabaco.value;
+            }
             });
 
-            // Exibe os valores selecionados
-            const doencasLabel = document.getElementById('Doencas-existentes-label');
-            doencasLabel.textContent = "Doenças Atuais ou Anteriores: "
-            const doencasValue = document.getElementById('Doencas-existentes-value');
-            doencasValue.textContent = values.join(', ');
-            
-            
+            document.getElementById('Habits-Tabaco-label').textContent = "Consumo de Tabaco: ";
+            document.getElementById('Habits-Tabaco-value').textContent = valorTabaco;
 
+            const radiosExercicios = document.querySelectorAll('input[name="exercicios"]');
 
-            // const imcStoraged = JSON.parse(localStorage.getItem("imc"));
-            // var imc = imcStoraged["IMC"];
-            // var imcClass = imcStoraged["Classification"];
-            // var imcRec = imcStoraged["Recommendation"];
-            // document.getElementById(
-            //     "IMC"
-            // ).innerHTML = `<h3>IMC: </h3><p>${imc}</p><p>${imcClass}</p><p>${imcRec}</p>`;
-            // const pressaoStoraged = JSON.parse(localStorage.getItem("pressão"));
-            // var pressure = pressaoStoraged["PAM"];
-            // var pressureClass = pressaoStoraged["Classification"];
-            // var pressureRec = pressaoStoraged["Recommendation"];
-            // document.getElementById(
-            //     "pressure"
-            // ).innerHTML = `<h3>Pressão: </h3><p>${pressure} mmHg</p><p>${pressureClass}</p><p>${pressureRec}</p>`;
+            let valorExercicios = null;
+
+                // Itera sobre os radios para verificar qual está selecionado
+            radiosExercicios.forEach(radioExercicios => {
+            if (radioExercicios.checked) {
+                valorExercicios = radioExercicios.value;
+            }
+            });
+
+            document.getElementById('Habits-Exercicios-label').textContent = "Praticas Exercicios: ";
+            document.getElementById('Habits-Exercicios-value').textContent = valorExercicios;
+
+            const AlcoolSelect = document.getElementById("habits-Alcool-select").value
+            document.getElementById('Habits-Alcool-Times-label').textContent = "Quantas vezes consome Alcool: "
+            document.getElementById('Habits-Alcool-Times-value').textContent =  AlcoolSelect
+            const TabacoSelect = document.getElementById("habits-Tabaco-select").value
+            document.getElementById('Habits-Tabaco-Times-label').textContent = "Quantas vezes consome Tabaco: "
+            document.getElementById('Habits-Tabaco-Times-value').textContent =  TabacoSelect
+            const ExerciciosSelect = document.getElementById("habits-Exercicios-select").value
+            document.getElementById('Habits-Exercicios-Times-label').textContent = "Quantas vezes Praticas Exercicios: "
+            document.getElementById('Habits-Exercicios-Times-value').textContent =  ExerciciosSelect
+
+            setTimeout(() => {
+                createResultadoFicha();
+              }, 1000);
+
         });
     });
 }
 
+function createResultadoFicha() {
+    const subTituloFichaMedicaElement = document.getElementById("subTituloFichaMedica");
+
+    // Textos a serem digitados
+    const subTituloFichaMedicaText = `Segue seu Resultado da Ficha Medica: `;
+
+    function typeWriter(text, element, delay, callback) {
+        let index = 0;
+        const interval = setInterval(function() {
+            element.textContent += text[index];
+            index++;
+            if (index >= text.length) {
+                clearInterval(interval);
+                if (callback) {
+                    callback();
+                }
+            }
+        }, delay);
+    }
+
+    // Limpa o conteúdo anterior
+    subTituloFichaMedicaElement.innerHTML = '';
+
+        // Simula a digitação do subtítulo após o título ser totalmente digitado
+        typeWriter(subTituloFichaMedicaText, subTituloFichaMedicaElement, 50, function() {
+            // Restante do seu código
+
+            const imcStoraged = JSON.parse(localStorage.getItem("imc"));
+             var imc = imcStoraged["IMC"];
+             var imcClass = imcStoraged["Classification"];
+             var imcRec = imcStoraged["Recommendation"];
+             document.getElementById(
+                 "IMC"
+             ).innerHTML = `<h3>IMC: </h3><p>${imc}</p><p>${imcClass}</p><p>${imcRec}</p>`;
+             const pressaoStoraged = JSON.parse(localStorage.getItem("pressão"));
+             var pressure = pressaoStoraged["PAM"];
+             var pressureClass = pressaoStoraged["Classification"];
+             var pressureRec = pressaoStoraged["Recommendation"];
+             document.getElementById(
+                 "pressure"
+             ).innerHTML = `<h3>Pressão: </h3><p>${pressure} mmHg</p><p>${pressureClass}</p><p>${pressureRec}</p>`;tent =  ExerciciosSelect
+             
+             setTimeout(() => {
+                CreteResultadoHiperTensao();
+              }, 500);
+
+        })
+    
+}
+
+function CreteResultadoHiperTensão() {
+
+    
+}
 
 
 function submitForm1() {
@@ -327,5 +421,5 @@ function submitForm2() {
     document.getElementById("loading").style.display = "none";
     document.getElementById("FormCalculo").style.display = "none";
     document.getElementById("results").style.display = "block";
-    createResult();
+        createFichaCadastral();
 }

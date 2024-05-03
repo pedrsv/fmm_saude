@@ -22,15 +22,23 @@
         <div><h3 id="subTitulo"></h3></div>
         <div class="fichaCadastral">
           <div id="Dados"></div>
-          <div><b><span id="Doencas-existentes-label"></span></b><span id= "Doencas-existentes-value"></span></div>
-          <div id = "Habits"></div>
+          <div><b><span id="Doencas-existentes-label"></span></b><span id="Doencas-existentes-value"></span></div>
+          <div><b><span id="Doencas-familiares-label"></span></b><span id="Doencas-familiares-value"></span></div>
+          <div><b><span id="Grau-de-Parentesco-label"></span></b><span id="Grau-de-Parentesco-value"></span></div>
+          <div><b><span id="Comorbidades-label"></span></b><span id="Comorbidades-value"></span></div>
+          <div id= "Habits">
+            <b><span id="Habits-Alcool-label"></span></b><span id="Habits-Alcool-value"></span>
+            <p><b><span id="Habits-Alcool-Times-label"></span></b><span id="Habits-Alcool-Times-value"></span></p>
+            <p><b><span id="Habits-Tabaco-label"></span></b><span id="Habits-Tabaco-value"></span></p>
+            <p><b><span id="Habits-Tabaco-Times-label"></span></b><span id="Habits-Tabaco-Times-value"></span></p>
+          <p><b><span id="Habits-Exercicios-label"></span></b><span id="Habits-Exercicios-value"></span></p>
+          <p><b><span id="Habits-Exercicios-Times-label"></span></b><span id="Habits-Exercicios-Times-value"></span></p>
+          </div>
         </div>
-        <div class="resultado">
-          <div id="IMC"></div>
-        </div>
-        <div class="resultado">
-          <div id="pressure"></div>
-        </div>
+
+        <div><h3 id="subTituloFichaMedica"></h3></div>
+        <div id="IMC"></div>
+        <div id="pressure"></div>
       </div>
 
       <div class="form" id="FormCalculo">
@@ -259,17 +267,18 @@
             </div>
           </div>
 
-          <div class="diseases-family-title">
-            <h4>Grau de Parentesco das Doenças Familiares</h4>
-          </div>
-
-          <div class="input-box">
-            <input
-              type="text"
-              id="diseases-family"
-              name="diseases-family"
-              placeholder="pai, mãe, avós, irmão ..."
-            />
+          <div class="diseases-family-inputs">
+            <div class="diseases-family-title">
+              <h4>Grau de Parentesco das Doenças Familiares</h4>
+            </div>
+            <div class="diseases-family-group">
+              <select name="diseases-family-select" id="diseases-family-select">
+                <option value="Nenhumm">Nenhum</option>
+                <option value="Grau 1 - Pais ou Irmãos">Grau 1 - Pais ou Irmãos</option>
+                <option value="Grau 2 - Tios ou avós">Grau 2 - Tios ou avós</option>
+                <option value="Grau 3 - Primos ou Bisavós">Grau 3 - Primos ou Bisavós</option>
+              </select>
+            </div>
           </div>
 
           <div class="comorbidade-inputs">
@@ -310,11 +319,11 @@
               <h4>Consumo de álcool</h4>
             </div>
             <div class="habits-life-group">
-              <input type="radio" id="sim" name="alcool" value="sim" />
+              <input type="radio" id="simAlcool" name="alcool" value="sim" />
               <label for="sim">Sim</label>
             </div>
             <div class="habits-life-group">
-              <input type="radio" id="nao " name="alcool" value="nao" />
+              <input type="radio" id="naoAlcool" name="alcool" value="não" />
               <label for="nao">Não</label>
             </div>
           </div>
@@ -324,7 +333,7 @@
               <h4>Quantas vezes você consome álcool na semana?</h4>
             </div>
             <div class="habits-life-group">
-              <select name="habits-life-select" id="habits-life-select">
+              <select name="habits-life-select" id="habits-Alcool-select">
                 <option value="Nenhuma">Nenhuma</option>
                 <option value="Quase nunca">Quase nunca</option>
                 <option value="Socialmente">Socialmente</option>
@@ -339,11 +348,11 @@
               <h4>Consumo de tabaco</h4>
             </div>
             <div class="habits-life-group">
-              <input type="radio" id="sim" name="tabaco" value="sim" />
+              <input type="radio" id="simTabaco" name="tabaco" value="sim" />
               <label for="sim">Sim</label>
             </div>
             <div class="habits-life-group">
-              <input type="radio" id="nao" name="tabaco" value="nao" />
+              <input type="radio" id="naoTabaco" name="tabaco" value="não" />
               <label for="nao">Não</label>
             </div>
           </div>
@@ -353,7 +362,7 @@
               <h4>Quantas vezes você consome tabaco na semana?</h4>
             </div>
             <div class="habits-life-group">
-              <select name="habits-life-select" id="habits-life-select">
+              <select name="habits-life-select" id="habits-Tabaco-select">
                 <option value="Nenhuma">Nenhuma</option>
                 <option value="Quase nunca">Quase nunca</option>
                 <option value="Socialmente">Socialmente</option>
@@ -368,11 +377,11 @@
               <h4>Pratica Exercicios?</h4>
             </div>
             <div class="habits-life-group">
-              <input type="radio" id="sim" name="tabaco" value="sim" />
+              <input type="radio" id="simExercicios" name="exercicios" value="sim" />
               <label for="sim">Sim</label>
             </div>
             <div class="habits-life-group">
-              <input type="radio" id="nao" name="tabaco" value="nao" />
+              <input type="radio" id="naoExercicios" name="exercicios" value="não" />
               <label for="nao">Não</label>
             </div>
           </div>
@@ -382,10 +391,10 @@
               <h4>Quantas vezes você pratica exercicios na semana?</h4>
             </div>
             <div class=".habits-life-group">
-              <select name="habits-life-select" id="habits-life-select">
-                <option value="Nenhuma">Nenhuma</option>
+              <select name="habits-life-select" id="habits-Exercicios-select">
+                <option value="Nenhuma">Nenhum</option>
                 <option value="Quase nunca">Quase nunca</option>
-                <option value="Socialmente">Socialmente</option>
+                <option value="As vezes">As vezes</option>
                 <option value="Quase Todos os dias">Quase Todos os dias</option>
                 <option value="Todo dia">Todo dia</option>
               </select>
