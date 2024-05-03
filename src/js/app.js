@@ -27,6 +27,9 @@ const ELEMENTOS_PARA_LIMPAR = [
   "back-button-result",
 ];
 
+var modal = document.getElementById("myModal");
+
+
 function limparElementos() {
   ELEMENTOS_PARA_LIMPAR.forEach((elemento) => {
     document.getElementById(elemento).innerHTML = "";
@@ -46,7 +49,7 @@ function showLoading(event) {
     document.getElementById("loading").style.display = "flex";
 
     // Simula o envio do formulário após 2 segundos
-    setTimeout(submitFormFichaMedica, 3000);
+    setTimeout(submitFormFichaMedica, 2500);
   } else {
     // Se o formulário não for válido, exibe mensagens de erro nos campos
     form.reportValidity();
@@ -56,19 +59,19 @@ function showLoading(event) {
 function showLoadingResult(event) {
   event.preventDefault(); // Impede o envio padrão do formulário
   document.getElementById("loading").style.display = "flex";
-  setTimeout(submitFormResult, 3000); // Simulando envio do formulário
+  setTimeout(submitFormResult, 2500); // Simulando envio do formulário
 }
 
 function showLoadingBackCadastro(event) {
   event.preventDefault(); // Impede o envio padrão do formulário
   document.getElementById("loading").style.display = "flex";
-  setTimeout(BackCadastro, 3000); // Simulando envio do formulário
+  setTimeout(BackCadastro, 2500); // Simulando envio do formulário
 }
 
 function showLoadingBackFichaMedica(event) {
   event.preventDefault(); // Impede o envio padrão do formulário
   document.getElementById("loading").style.display = "flex";
-  setTimeout(BackFichaMedica, 3000); // Simulando envio do formulário
+  setTimeout(BackFichaMedica, 2500); // Simulando envio do formulário
 }
 
 const imcRanges = [
@@ -333,6 +336,7 @@ function createFichaCadastral() {
       document.getElementById("Doencas-familiares-value").textContent =
         valuesDoencasFamilia.join(", ");
 
+        
       const grauParentescoSelect = document.getElementById(
         "diseases-family-select"
       ).value;
@@ -524,8 +528,38 @@ function BackFichaMedica() {
   document.getElementById("FormCalculo").style.display = "block";
 }
 
-function salvar(){
-
-
+function Salvar(){
     
+     const nome = document.getElementById("nome").value;
+     var data_Nascimento = document.getElementById("data_nascimento").value;
+     const genero = document.getElementById("gender-select").value;
+     const checkboxesDoencas = document.querySelectorAll(
+        'input[name="doencas"]:checked'
+      );
+      const valuesDoencas = [];
+      checkboxesDoencas.forEach((checkboxDoencas) => {
+        valuesDoencas.push(checkboxDoencas.value);
+      });
+
+      const checkboxesDoencasFamilia = document.querySelectorAll(
+        'input[name="doencas_familiares"]:checked'
+      );
+      const valuesDoencasFamilia = [];
+      checkboxesDoencasFamilia.forEach((checkboxeDoencasFamilia) => {
+        valuesDoencasFamilia.push(checkboxeDoencasFamilia.value);
+      });
+
+      const grauParentescoSelect = document.getElementById(
+        "diseases-family-select"
+      ).value;
+    
+      const checkboxesComorbidades = document.querySelectorAll(
+        'input[name="comorbidades"]:checked'
+      );
+      const valuesComorbidades = [];
+      checkboxesComorbidades.forEach((checkboxComorbidades) => {
+        valuesComorbidades.push(checkboxComorbidades.value);
+      });
+    
+
 }
