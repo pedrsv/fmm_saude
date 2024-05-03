@@ -39,7 +39,21 @@
         <div><h3 id="subTituloFichaMedica"></h3></div>
         <div id="IMC"></div>
         <div id="pressure"></div>
+
+        <div class="button-container">
+
+          <div class="save-button">
+            <div id ="save-button-result"></div>
+          </div>
+  
+          <div class="back-button">
+            <div id="back-button-result"></div>
+          </div>
+  
+        </div>
       </div>
+
+
 
       <div class="form" id="FormCalculo">
         <div class="form-header">
@@ -68,11 +82,19 @@
             <label for="diastolic">Pressão Diastolica (mmHg):</label>
             <input type="number" id="diastolic" name="diastolic" required />
           </div>
-
+          <div class="button-container">
+            
           <div class="save-button">
-            <button type="button" onclick="showLoading1(event)">
+            <button type="button" onclick="showLoadingResult(event)">
               Continuar
             </button>
+          </div>
+
+          <div class="back-button">
+            <button type="button" onclick="showLoadingBackCadastro(event)">
+              Voltar
+            </button>
+          </div>
           </div>
         </div>
       </div>
@@ -401,7 +423,7 @@
             </div>
           </div>
 
-          <div class="save-button">
+          <div class="save-button" style="text-align: center;">
             <button type="submit" value="Enviar" onclick="showLoading(event)">
               Continuar
             </button>
