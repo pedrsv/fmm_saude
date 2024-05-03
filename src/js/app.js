@@ -392,7 +392,7 @@ function createResultadoFicha() {
              var pressureRec = pressaoStoraged["Recommendation"];
              document.getElementById(
                  "pressure"
-             ).innerHTML = `<h3>Pressão: </h3><p>${pressure} mmHg</p><p>${pressureClass}</p><p>${pressureRec}</p>`;tent =  ExerciciosSelect
+             ).innerHTML = `<h3>Pressão: </h3><p>${pressure} mmHg</p><p>${pressureClass}</p><p>${pressureRec}</p>`;
              
              setTimeout(() => {
                 CreteResultadoHiperTensao();
