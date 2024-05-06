@@ -79,7 +79,7 @@
     margin-bottom: 20px;
 }
 
-#subTituloFichaMedica{
+#subTituloFichaMedica, #tituloResultadoProbabilitcos{
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -189,6 +189,7 @@ body{
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 18px;
 }
 
 .diseases-previous-group label, input{
@@ -229,7 +230,15 @@ body{
     background-color: #45a049;
 }
 
-
+#ResultadoProbabilitcos h2 {
+    padding: 20px 0px;
+    text-align: center;
+    font-size: 30px;
+}
+#ResultadoProbabilitcos p {
+    font-size: 15px;
+    text-align: center;
+}
 /* Estilo Responsivo */
 @media (max-width: 768px) {
     .container {

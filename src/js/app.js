@@ -25,6 +25,8 @@ const ELEMENTOS_PARA_LIMPAR = [
   "pressure",
   "save-button-result",
   "back-button-result",
+  "tituloResultadoProbabilitcos",
+  "ResultadoProbabilitcos"
 ];
 
 var modal = document.getElementById("myModal");
@@ -266,13 +268,45 @@ function calcularIdade(dataNascimento) {
   return idade;
 }
 
+function calcularPontos(condicao, valor, pontosPorFrequencia) {
+  if (condicao && pontosPorFrequencia[valor] !== undefined) {
+      return pontosPorFrequencia[valor];
+  }
+  return 0; // Se a condição não for atendida ou o valor não for encontrado, retornamos 0 pontos
+}
+
 function createFichaCadastral() {
-  const nome = document.getElementById("nome").value;
+  var pontosHipertensão = 0;
+  var familiaCardiaca = false;
+  var jaTemHipertensao = false;
+  const pontosPorParentesco = {
+    "Grau 1 - Pais ou Irmãos": 8,
+    "Grau 2 - Tios ou avós": 5,
+    "Grau 3 - Primos ou Bisavós": 2
+};
+
+const pontosPorFrequenciaConsumo = {
+  "Nenhuma": 0,
+  "Quase nunca": 1,
+  "Socialmente": 3,
+  "Quase Todos os dias": 5,
+  "Todo dia": 8
+};
+
+const pontosPorFrequenciaExercicios = {
+  "Nenhuma": 0,
+  "Quase nunca": 1,
+  "as vezes": 3,
+  "Quase Todos os dias": 5,
+  "Todo dia": 8
+};
+
+  const nome = document.getElementById("nomePaciente").value;
   const tituloElement = document.getElementById("Titulo");
   const subTituloElement = document.getElementById("subTitulo");
 
   // Textos a serem digitados
-  const tituloText = `Olá, ${nome}, Muito prazer`;
+  const tituloText = `Olá ${nome}, Muito prazer`;
   const subTituloText = `Segue sua Ficha Cadastral: `;
 
   // Função para simular digitação com callback
@@ -315,9 +349,12 @@ function createFichaCadastral() {
       );
       const valuesDoencas = [];
       checkboxesDoencas.forEach((checkboxDoencas) => {
+        if (checkboxDoencas.value.trim() == "Cardíaca") {
+          pontosHipertensão += 10;
+        }
         valuesDoencas.push(checkboxDoencas.value);
       });
-      // Exibe os valores selecionados
+      
       document.getElementById("Doencas-existentes-label").textContent =
         "Doenças Atuais ou Anteriores: ";
       document.getElementById("Doencas-existentes-value").textContent =
@@ -328,6 +365,9 @@ function createFichaCadastral() {
       );
       const valuesDoencasFamilia = [];
       checkboxesDoencasFamilia.forEach((checkboxeDoencasFamilia) => {
+        if (checkboxeDoencasFamilia.value.trim() == "Cardíaca") {
+          familiaCardiaca = true;
+        }
         valuesDoencasFamilia.push(checkboxeDoencasFamilia.value);
       });
       // Exibe os valores selecionados
@@ -345,11 +385,19 @@ function createFichaCadastral() {
       document.getElementById("Grau-de-Parentesco-value").textContent =
         grauParentescoSelect;
 
+        if (familiaCardiaca && pontosPorParentesco[grauParentescoSelect] !== undefined) {
+          pontosHipertensão += pontosPorParentesco[grauParentescoSelect];
+      }
+
+
       const checkboxesComorbidades = document.querySelectorAll(
         'input[name="comorbidades"]:checked'
       );
       const valuesComorbidades = [];
       checkboxesComorbidades.forEach((checkboxComorbidades) => {
+        if (checkboxComorbidades.value.trim() == "Hipertensão"){
+          jaTemHipertensao = true;
+        }
         valuesComorbidades.push(checkboxComorbidades.value);
       });
       // Exibe os valores selecionados
@@ -362,7 +410,6 @@ function createFichaCadastral() {
 
       let valorAlcool = null;
 
-      // Itera sobre os radios para verificar qual está selecionado
       radiosAlcool.forEach((radioAlcool) => {
         if (radioAlcool.checked) {
           valorAlcool = radioAlcool.value;
@@ -428,14 +475,24 @@ function createFichaCadastral() {
       document.getElementById("Habits-Exercicios-Times-value").textContent =
         ExerciciosSelect;
 
+        pontosHipertensão += calcularPontos(valorAlcool === "Sim", AlcoolSelect, pontosPorFrequenciaConsumo);
+
+        pontosHipertensão += calcularPontos(valorTabaco === "Sim", TabacoSelect, pontosPorFrequenciaConsumo);
+        
+        pontosHipertensão -= calcularPontos(valorExercicios === "Sim", ExerciciosSelect, pontosPorFrequenciaExercicios);
+        
+        if (jaTemHipertensao) {
+            pontosHipertensão = 50;
+        }
+        
       setTimeout(() => {
-        createResultadoFicha();
+        createResultadoFicha(pontosHipertensão);
       }, 1000);
     });
   });
 }
 
-function createResultadoFicha() {
+function createResultadoFicha(pontosHipertensão) {
   const subTituloFichaMedicaElement = document.getElementById(
     "subTituloFichaMedica"
   );
@@ -484,20 +541,53 @@ function createResultadoFicha() {
       ).innerHTML = `<h3>Pressão: </h3><p>${pressure} mmHg</p><p>${pressureClass}</p><p>${pressureRec}</p>`;
 
       setTimeout(() => {
-        CreteResultadoHiperTensao();
+        CreteResultadoHiperTensao(pontosHipertensão);
       }, 100);
     }
   );
 }
 
-function CreteResultadoHiperTensao() {
-  document.getElementById(
-    "save-button-result"
-  ).innerHTML = `<button type="button" onclick="Salvar()">Salvar</button>`;
-  document.getElementById(
-    "back-button-result"
-  ).innerHTML = `<button type="button" onclick="showLoadingBackFichaMedica(event)">Voltar</button>`;
-}
+function CreteResultadoHiperTensao(pontosHipertensão) {
+  const tituloResultadoProbabilitcosElement = document.getElementById(
+    "tituloResultadoProbabilitcos"
+  );
+
+  // Textos a serem digitados
+  const tituloResultadoProbabilitcosText = `Segue seu Resultado Probilistico: `;
+
+  function typeWriter(text, element, delay, callback) {
+    let index = 0;
+    const interval = setInterval(function () {
+      element.textContent += text[index];
+      index++;
+      if (index >= text.length) {
+        clearInterval(interval);
+        if (callback) {
+          callback();
+        }
+      }
+    }, delay);
+  }
+
+  // Limpa o conteúdo anterior
+  tituloResultadoProbabilitcosElement.innerHTML = "";
+
+  // Simula a digitação do subtítulo após o título ser totalmente digitado
+  typeWriter(
+    tituloResultadoProbabilitcosText,
+    tituloResultadoProbabilitcosElement,
+    50,
+    function () {
+        pontosHipertensão = (pontosHipertensão / 50) * 100;
+document.getElementById("ResultadoProbabilitcos").innerHTML = `<p>A probabilidade de você ter Hipertensão é de :</p><h2>${pontosHipertensão}%</h2>`
+
+        document.getElementById(
+          "save-button-result"
+        ).innerHTML = `<button type="button" onclick="Salvar()">Salvar</button>`;
+        document.getElementById(
+          "back-button-result"
+        ).innerHTML = `<button type="button" onclick="showLoadingBackFichaMedica(event)">Voltar</button>`;
+})}
 
 function submitFormFichaMedica() {
   document.getElementById("loading").style.display = "none";
