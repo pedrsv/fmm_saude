@@ -608,6 +608,7 @@ function CreteResultadoHiperTensao(pontosHipertensão) {
     }, delay);
   }
 
+
   // Limpa o conteúdo anterior
   tituloResultadoProbabilitcosElement.innerHTML = "";
 
@@ -788,7 +789,9 @@ function Salvar(event, pontosHipertensão) {
     'entry.729462980':   pressure,
     'entry.106597488': pressureClass,
     'entry.2029787559': pressureRec,
-    'entry.522089849': pontosHipertensão
+    'entry.522089849': pontosHipertensão,
+    'entry.1311823424':valorExercicios,
+    'entry.394685867': ExerciciosSelect
   };
   
   fetch(url, {
@@ -801,4 +804,9 @@ function Salvar(event, pontosHipertensão) {
   
 
   showLoadingSalvar(event);
+}
+
+function Inicio(){
+  window.location.href = "/index.html";
+
 }
