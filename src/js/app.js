@@ -553,7 +553,7 @@ function CreteResultadoHiperTensao(pontosHipertensão) {
   );
 
   // Textos a serem digitados
-  const tituloResultadoProbabilitcosText = `Segue seu Resultado Probilistico: `;
+  const tituloResultadoProbabilitcosText = `Segue seu Resultado Hipotetico: `;
 
   function typeWriter(text, element, delay, callback) {
     let index = 0;
@@ -580,6 +580,7 @@ function CreteResultadoHiperTensao(pontosHipertensão) {
     function () {
         pontosHipertensão = (pontosHipertensão / 50) * 100;
 document.getElementById("ResultadoProbabilitcos").innerHTML = `<p>A probabilidade de você ter Hipertensão é de :</p><h2>${pontosHipertensão}%</h2>`
+
 
         document.getElementById(
           "save-button-result"
