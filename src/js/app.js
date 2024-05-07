@@ -807,6 +807,6 @@ function Salvar(event, pontosHipertensão) {
 }
 
 function Inicio(){
-  window.location.href = "/index.html";
+  window.location.href = "../../index.html";
 
 }
