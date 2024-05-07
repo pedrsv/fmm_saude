@@ -26,11 +26,14 @@ const ELEMENTOS_PARA_LIMPAR = [
   "save-button-result",
   "back-button-result",
   "tituloResultadoProbabilitcos",
-  "ResultadoProbabilitcos"
+  "ResultadoProbabilitcos",
 ];
 
-var modal = document.getElementById("myModal");
+if (localStorage.getItem("session") != 1) {
+  window.location.href = "/index.html";
+}
 
+var modal = document.getElementById("myModal");
 
 function limparElementos() {
   ELEMENTOS_PARA_LIMPAR.forEach((elemento) => {
@@ -74,6 +77,29 @@ function showLoadingBackFichaMedica(event) {
   event.preventDefault(); // Impede o envio padrão do formulário
   document.getElementById("loading").style.display = "flex";
   setTimeout(BackFichaMedica, 2500); // Simulando envio do formulário
+}
+
+function showLoadingSalvar(event) {
+  event.preventDefault(); // Impede o envio padrão do formulário
+  document.getElementById("loading-container").style.display = "flex";
+  updateProgress();
+  setTimeout(PaginaSalvar, 2500); // Simulando envio do formulário
+}
+
+let progress = 0;
+const progressBar = document.getElementById("progressBar");
+const progressText = document.getElementById("progressText");
+
+function updateProgress() {
+  progress += 10;
+  progressBar.style.width = progress + "%";
+  progressText.textContent = progress + "%";
+
+  if (progress < 100) {
+    setTimeout(updateProgress, 250);
+  } else {
+    progressText.textContent = "Concluído!";
+  }
 }
 
 const imcRanges = [
@@ -270,7 +296,7 @@ function calcularIdade(dataNascimento) {
 
 function calcularPontos(condicao, valor, pontosPorFrequencia) {
   if (condicao && pontosPorFrequencia[valor] !== undefined) {
-      return pontosPorFrequencia[valor];
+    return pontosPorFrequencia[valor];
   }
   return 0; // Se a condição não for atendida ou o valor não for encontrado, retornamos 0 pontos
 }
@@ -282,24 +308,24 @@ function createFichaCadastral() {
   const pontosPorParentesco = {
     "Grau 1 - Pais ou Irmãos": 8,
     "Grau 2 - Tios ou avós": 5,
-    "Grau 3 - Primos ou Bisavós": 2
-};
+    "Grau 3 - Primos ou Bisavós": 2,
+  };
 
-const pontosPorFrequenciaConsumo = {
-  "Nenhuma": 0,
-  "Quase nunca": 1,
-  "Socialmente": 3,
-  "Quase Todos os dias": 5,
-  "Todo dia": 8
-};
+  const pontosPorFrequenciaConsumo = {
+    Nenhuma: 0,
+    "Quase nunca": 1,
+    Socialmente: 3,
+    "Quase Todos os dias": 5,
+    "Todo dia": 8,
+  };
 
-const pontosPorFrequenciaExercicios = {
-  "Nenhuma": 0,
-  "Quase nunca": 1,
-  "as vezes": 3,
-  "Quase Todos os dias": 5,
-  "Todo dia": 8
-};
+  const pontosPorFrequenciaExercicios = {
+    Nenhuma: 0,
+    "Quase nunca": 1,
+    "as vezes": 3,
+    "Quase Todos os dias": 5,
+    "Todo dia": 8,
+  };
 
   const nome = document.getElementById("nomePaciente").value;
   const tituloElement = document.getElementById("Titulo");
@@ -354,7 +380,7 @@ const pontosPorFrequenciaExercicios = {
         }
         valuesDoencas.push(checkboxDoencas.value);
       });
-      
+
       document.getElementById("Doencas-existentes-label").textContent =
         "Doenças Atuais ou Anteriores: ";
       document.getElementById("Doencas-existentes-value").textContent =
@@ -376,7 +402,6 @@ const pontosPorFrequenciaExercicios = {
       document.getElementById("Doencas-familiares-value").textContent =
         valuesDoencasFamilia.join(", ");
 
-        
       const grauParentescoSelect = document.getElementById(
         "diseases-family-select"
       ).value;
@@ -385,17 +410,19 @@ const pontosPorFrequenciaExercicios = {
       document.getElementById("Grau-de-Parentesco-value").textContent =
         grauParentescoSelect;
 
-        if (familiaCardiaca && pontosPorParentesco[grauParentescoSelect] !== undefined) {
-          pontosHipertensão += pontosPorParentesco[grauParentescoSelect];
+      if (
+        familiaCardiaca &&
+        pontosPorParentesco[grauParentescoSelect] !== undefined
+      ) {
+        pontosHipertensão += pontosPorParentesco[grauParentescoSelect];
       }
-
 
       const checkboxesComorbidades = document.querySelectorAll(
         'input[name="comorbidades"]:checked'
       );
       const valuesComorbidades = [];
       checkboxesComorbidades.forEach((checkboxComorbidades) => {
-        if (checkboxComorbidades.value.trim() == "Hipertensão"){
+        if (checkboxComorbidades.value.trim() == "Hipertensão") {
           jaTemHipertensao = true;
         }
         valuesComorbidades.push(checkboxComorbidades.value);
@@ -475,16 +502,28 @@ const pontosPorFrequenciaExercicios = {
       document.getElementById("Habits-Exercicios-Times-value").textContent =
         ExerciciosSelect;
 
-        pontosHipertensão += calcularPontos(valorAlcool === "Sim", AlcoolSelect, pontosPorFrequenciaConsumo);
+      pontosHipertensão += calcularPontos(
+        valorAlcool === "Sim",
+        AlcoolSelect,
+        pontosPorFrequenciaConsumo
+      );
 
-        pontosHipertensão += calcularPontos(valorTabaco === "Sim", TabacoSelect, pontosPorFrequenciaConsumo);
-        
-        pontosHipertensão -= calcularPontos(valorExercicios === "Sim", ExerciciosSelect, pontosPorFrequenciaExercicios);
-        
-        if (jaTemHipertensao) {
-            pontosHipertensão = 50;
-        }
-        
+      pontosHipertensão += calcularPontos(
+        valorTabaco === "Sim",
+        TabacoSelect,
+        pontosPorFrequenciaConsumo
+      );
+
+      pontosHipertensão -= calcularPontos(
+        valorExercicios === "Sim",
+        ExerciciosSelect,
+        pontosPorFrequenciaExercicios
+      );
+
+      if (jaTemHipertensao) {
+        pontosHipertensão = 50;
+      }
+
       setTimeout(() => {
         createResultadoFicha(pontosHipertensão);
       }, 1000);
@@ -578,17 +617,20 @@ function CreteResultadoHiperTensao(pontosHipertensão) {
     tituloResultadoProbabilitcosElement,
     50,
     function () {
-        pontosHipertensão = (pontosHipertensão / 50) * 100;
-document.getElementById("ResultadoProbabilitcos").innerHTML = `<p>A probabilidade de você ter Hipertensão é de :</p><h2>${pontosHipertensão}%</h2>`
+      pontosHipertensão = (pontosHipertensão / 50) * 100;
+      document.getElementById(
+        "ResultadoProbabilitcos"
+      ).innerHTML = `<p>A probabilidade de você ter Hipertensão é de :</p><h2>${pontosHipertensão}%</h2>`;
 
-
-        document.getElementById(
-          "save-button-result"
-        ).innerHTML = `<button type="button" onclick="Salvar()">Salvar</button>`;
-        document.getElementById(
-          "back-button-result"
-        ).innerHTML = `<button type="button" onclick="showLoadingBackFichaMedica(event)">Voltar</button>`;
-})}
+      document.getElementById(
+        "save-button-result"
+      ).innerHTML = `<button type="button" onclick="Salvar(event,${pontosHipertensão})">Salvar</button>`;
+      document.getElementById(
+        "back-button-result"
+      ).innerHTML = `<button type="button" onclick="showLoadingBackFichaMedica(event)">Voltar</button>`;
+    }
+  );
+}
 
 function submitFormFichaMedica() {
   document.getElementById("loading").style.display = "none";
@@ -619,38 +661,144 @@ function BackFichaMedica() {
   document.getElementById("FormCalculo").style.display = "block";
 }
 
-function Salvar(){
-    
-     const nome = document.getElementById("nome").value;
-     var data_Nascimento = document.getElementById("data_nascimento").value;
-     const genero = document.getElementById("gender-select").value;
-     const checkboxesDoencas = document.querySelectorAll(
-        'input[name="doencas"]:checked'
-      );
-      const valuesDoencas = [];
-      checkboxesDoencas.forEach((checkboxDoencas) => {
-        valuesDoencas.push(checkboxDoencas.value);
-      });
+function PaginaSalvar() {
+  document.getElementById("loading-container").style.display = "none";
+  document.getElementById("results").style.display = "none";
+  document.getElementById("salvo").style.display = "block";
+}
 
-      const checkboxesDoencasFamilia = document.querySelectorAll(
-        'input[name="doencas_familiares"]:checked'
-      );
-      const valuesDoencasFamilia = [];
-      checkboxesDoencasFamilia.forEach((checkboxeDoencasFamilia) => {
-        valuesDoencasFamilia.push(checkboxeDoencasFamilia.value);
-      });
+function Salvar(event, pontosHipertensão) {
+  const nome = document.getElementById("nomePaciente").value;
+  const cpf = document.getElementById("CPF").value
+  const email = document.getElementById("email").value
+  var data_Nascimento = document.getElementById("data_nascimento").value;
+  const genero = document.getElementById("gender-select").value;
+  const checkboxesDoencas = document.querySelectorAll(
+    'input[name="doencas"]:checked'
+  );
+  const valuesDoencas = [];
+  checkboxesDoencas.forEach((checkboxDoencas) => {
+    valuesDoencas.push(checkboxDoencas.value);
+  });
 
-      const grauParentescoSelect = document.getElementById(
-        "diseases-family-select"
-      ).value;
-    
-      const checkboxesComorbidades = document.querySelectorAll(
-        'input[name="comorbidades"]:checked'
-      );
-      const valuesComorbidades = [];
-      checkboxesComorbidades.forEach((checkboxComorbidades) => {
-        valuesComorbidades.push(checkboxComorbidades.value);
-      });
-    
+  const checkboxesDoencasFamilia = document.querySelectorAll(
+    'input[name="doencas_familiares"]:checked'
+  );
+  const valuesDoencasFamilia = [];
+  checkboxesDoencasFamilia.forEach((checkboxeDoencasFamilia) => {
+    valuesDoencasFamilia.push(checkboxeDoencasFamilia.value);
+  });
 
+  const grauParentescoSelect = document.getElementById(
+    "diseases-family-select"
+  ).value;
+
+  const checkboxesComorbidades = document.querySelectorAll(
+    'input[name="comorbidades"]:checked'
+  );
+  const valuesComorbidades = [];
+  checkboxesComorbidades.forEach((checkboxComorbidades) => {
+    valuesComorbidades.push(checkboxComorbidades.value);
+  });
+
+  const radiosAlcool = document.querySelectorAll('input[name="alcool"]');
+
+  let valorAlcool = null;
+
+  radiosAlcool.forEach((radioAlcool) => {
+    if (radioAlcool.checked) {
+      valorAlcool = radioAlcool.value;
+    }
+  });
+
+  const radiosTabaco = document.querySelectorAll('input[name="tabaco"]');
+
+  let valorTabaco = null;
+
+  // Itera sobre os radios para verificar qual está selecionado
+  radiosTabaco.forEach((radioTabaco) => {
+    if (radioTabaco.checked) {
+      valorTabaco = radioTabaco.value;
+    }
+  });
+
+  const radiosExercicios = document.querySelectorAll(
+    'input[name="exercicios"]'
+  );
+
+  let valorExercicios = null;
+
+  // Itera sobre os radios para verificar qual está selecionado
+  radiosExercicios.forEach((radioExercicios) => {
+    if (radioExercicios.checked) {
+      valorExercicios = radioExercicios.value;
+    }
+  });
+
+  const AlcoolSelect = document.getElementById("habits-Alcool-select").value;
+
+  const TabacoSelect = document.getElementById("habits-Tabaco-select").value;
+  const ExerciciosSelect = document.getElementById(
+    "habits-Exercicios-select"
+  ).value;
+
+  const weight = parseFloat(document.getElementById("weight").value);
+  const height = parseFloat(document.getElementById("height").value);
+  const sistolic = parseInt(document.getElementById("sistolic").value);
+  const diastolic = parseInt(document.getElementById("diastolic").value);
+
+
+  
+  const imcStoraged = JSON.parse(localStorage.getItem("imc"));
+  var imc = imcStoraged["IMC"];
+  var imcClass = imcStoraged["Classification"];
+  var imcRec = imcStoraged["Recommendation"];
+
+  const pressaoStoraged = JSON.parse(localStorage.getItem("pressão"));
+  var pressure = pressaoStoraged["PAM"];
+  var pressureClass = pressaoStoraged["Classification"];
+  var pressureRec = pressaoStoraged["Recommendation"];
+
+  const url = 'https://docs.google.com/forms/d/e/1FAIpQLSejXznG2QwCqlCAVbtwx7qvB7VK90qCa3YnqvqvfxCuupRTBg/formResponse';
+
+  // Dados a serem enviados
+  const data = {
+    'entry.1484600818': nome,
+    'entry.1590725238': cpf,
+    'entry.564014684': localStorage.getItem("session"),
+    'entry.1423951774': email,
+    'entry.804215977': data_Nascimento,
+    'entry.297042817': 1,
+    'entry.685625695': genero,
+    'entry.1388914184':  valuesDoencas.join(", "),
+    'entry.1497921746': valuesDoencasFamilia.join(", "),
+    'entry.927652699': grauParentescoSelect,
+    'entry.1027614789': valuesComorbidades.join(", "),
+    'entry.1746122409': valorAlcool,
+    'entry.682626496': AlcoolSelect,
+    'entry.2139665065': valorTabaco,
+    'entry.493708880': TabacoSelect,
+    'entry.1171994910':  weight ,
+    'entry.2116130965': height,
+    'entry.1077810639': sistolic,
+    'entry.2070005040': diastolic,
+    'entry.209739894': imc,
+    'entry.870026488': imcClass,
+    'entry.1585219757': imcRec,
+    'entry.729462980':   pressure,
+    'entry.106597488': pressureClass,
+    'entry.2029787559': pressureRec,
+    'entry.522089849': pontosHipertensão
+  };
+  
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: new URLSearchParams(data)
+  })
+  
+
+  showLoadingSalvar(event);
 }

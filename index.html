@@ -29,9 +29,9 @@
 
                     <div class="input-box">
 
-                        <header>Semana da Saúde</header>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum excepturi, neque velit veniam tenetur saepe soluta iusto. Voluptate aliquid dignissimos accusamus consequatur commodi? Nesciunt doloribus, dolores totam dolorem atque consequuntur.</p>
-                        <!-- <div class="input-field">
+                        <header>FMMSaude</header>
+                        <p>Bem-vindo ao FMMSAUDE! Aqui, você cuida da sua saúde de forma simples e eficaz. Preencha suas informações pessoais e médicas rapidamente, mantenha seu histórico de saúde sempre acessível e faça uma avaliação de risco de hipertensão de forma personalizada. Estamos aqui para ajudá-lo em sua jornada para uma vida mais saudável. Experimente o FMMSAUDE agora mesmo!</p>                           
+                         <!-- <div class="input-field">
                             <input type="text" class="input" id="email" required="" autocomplete="off">
                             <label for="email">Email</label>
                         </div>
@@ -63,6 +63,7 @@
 </body>
 
 <script>
+    localStorage.setItem("session", 0);
     if (typeof navigator.serviceWorker !== 'undefined') {
       navigator.serviceWorker.register('src/js/pwabuilder-sw.js')
     }
