@@ -666,6 +666,8 @@ function PaginaSalvar() {
   document.getElementById("loading-container").style.display = "none";
   document.getElementById("results").style.display = "none";
   document.getElementById("salvo").style.display = "block";
+  setTimeout(SiteFMM, 4000)
+  
 }
 
 function Salvar(event, pontosHipertensão) {
@@ -821,3 +823,7 @@ document.getElementById('CPF').addEventListener('input', function(e) {
 	  .replace(/(-\d{2})\d+?$/, '$1');
   e.target.value = cpfPattern;
 });
+
+function SiteFMM() {
+  window.open("https://faculdadematiasmachline.org.br/");
+}
