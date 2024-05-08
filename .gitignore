@@ -1,0 +1,3 @@
+# Stage files and subdirectories to be ignored in commits such as
+# test-folder/ <-- an entire subfolder
+# my-credentials.txt <-- notes or private files
