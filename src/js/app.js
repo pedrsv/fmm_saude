@@ -810,3 +810,14 @@ function Inicio(){
   window.location.href = "../../index.html";
 
 }
+
+// CPF auto formating script based on mco2.com.br example
+document.getElementById('CPF').addEventListener('input', function(e) {
+  var value = e.target.value;
+  var cpfPattern = value.replace(/\D/g, '')
+						.replace(/(\d{3})(\d)/, '$1.$2')
+						.replace(/(\d{3})(\d)/, '$1.$2')
+						.replace(/(\d{3})(\d)/, '$1-$2')
+						.replace(/(-\d{2})\d+?$/, '$1');
+  e.target.value = cpfPattern;
+});
