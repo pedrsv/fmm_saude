@@ -30,7 +30,7 @@ const ELEMENTOS_PARA_LIMPAR = [
 ];
 
 if (localStorage.getItem("session") != 1) {
-  window.location.href = "/index.html";
+  window.location.href = "../../index.html";
 }
 
 var modal = document.getElementById("myModal");
