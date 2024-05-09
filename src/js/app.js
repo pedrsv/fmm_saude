@@ -382,7 +382,7 @@ function createFichaCadastral() {
       });
 
       document.getElementById("Doencas-existentes-label").textContent =
-        "Doenças Atuais ou Anteriores: ";
+        "Doenças Atuais: ";
       document.getElementById("Doencas-existentes-value").textContent =
         valuesDoencas.join(", ");
 
