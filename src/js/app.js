@@ -312,15 +312,15 @@ function createFichaCadastral() {
   };
 
   const pontosPorFrequenciaConsumo = {
-    Nenhuma: 0,
+    "Nenhuma": 0,
     "Quase nunca": 1,
-    Socialmente: 3,
+    "Socialmente": 3,
     "Quase Todos os dias": 5,
     "Todo dia": 8,
   };
 
   const pontosPorFrequenciaExercicios = {
-    Nenhuma: 0,
+    "Nenhuma": 0,
     "Quase nunca": 1,
     "as vezes": 3,
     "Quase Todos os dias": 5,
