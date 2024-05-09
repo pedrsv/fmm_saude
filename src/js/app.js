@@ -27,6 +27,7 @@ const ELEMENTOS_PARA_LIMPAR = [
   "back-button-result",
   "tituloResultadoProbabilitcos",
   "ResultadoProbabilitcos",
+  "recomendacoesResultados"
 ];
 
 if (localStorage.getItem("session") != 1) {
