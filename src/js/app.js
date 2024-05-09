@@ -378,6 +378,11 @@ function createFichaCadastral() {
         if (checkboxDoencas.value.trim() == "Cardíaca") {
           pontosHipertensão += 10;
         }
+
+        if (checkboxDoencas.value.trim() == "Hipertensão") {
+          jaTemHipertensao = true
+        }
+
         valuesDoencas.push(checkboxDoencas.value);
       });
 
@@ -622,6 +627,23 @@ function CreteResultadoHiperTensao(pontosHipertensão) {
       document.getElementById(
         "ResultadoProbabilitcos"
       ).innerHTML = `<p>A probabilidade de você ter Hipertensão é de :</p><h2>${pontosHipertensão}%</h2>`;
+      
+
+      if (pontosHipertensão < 40) {
+        document.getElementById(
+          "recomendacoesResultados"
+        ).innerHTML = `<p>Você tem poucas chances de Hipertensão</p>`;
+      } else if (pontosHipertensão >= 40 && pontosHipertensão < 75) {
+        document.getElementById(
+          "recomendacoesResultados"
+        ).innerHTML = `<p>Você tem boaschances de Hipertensão</p>`;
+      } else {
+        document.getElementById(
+          "recomendacoesResultados"
+        ).innerHTML = `<p>Você provavelmente terá ou tem Hipertensão</p>`;
+      }
+      
+
 
       document.getElementById(
         "save-button-result"
