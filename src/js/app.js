@@ -243,7 +243,7 @@ function calculate() {
 
 function calculatePressao(sistolic, diastolic) {
   if (sistolic <= 0 || diastolic <= 0) {
-    return { error: "Diastolia e Sistolica devem ser valores positivos." };
+    return { error: "Diastólica e Sistólica devem ser valores positivos." };
   }
 
   if (isNaN(sistolic) || isNaN(diastolic)) {
