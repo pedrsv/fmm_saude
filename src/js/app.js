@@ -592,7 +592,7 @@ function CreteResultadoHiperTensao(pontosHipertensão) {
   );
 
   // Textos a serem digitados
-  const tituloResultadoProbabilitcosText = `Segue seu Resultado Hipot�tico: `;
+  const tituloResultadoProbabilitcosText = `Segue seu Resultado Hipotético: `;
 
   function typeWriter(text, element, delay, callback) {
     let index = 0;
