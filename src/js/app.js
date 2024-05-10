@@ -34,7 +34,6 @@ if (localStorage.getItem("session") != 1) {
   window.location.href = "../../index.html";
 }
 
-allowOnlyNumbers(document.getElementById("weight"));
 allowOnlyNumbers(document.getElementById("height"));
 allowOnlyNumbers(document.getElementById("sistolic"));
 allowOnlyNumbers(document.getElementById("diastolic"));
