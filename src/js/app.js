@@ -637,7 +637,7 @@ function CreteResultadoHiperTensao(pontosHipertensão) {
       } else if (pontosHipertensão >= 40 && pontosHipertensão < 75) {
         document.getElementById(
           "recomendacoesResultados"
-        ).innerHTML = `<p>Você tem boaschances de Hipertensão</p>`;
+        ).innerHTML = `<p>Você tem boas chances de Hipertensão</p>`;
       } else {
         document.getElementById(
           "recomendacoesResultados"
