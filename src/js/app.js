@@ -34,6 +34,21 @@ if (localStorage.getItem("session") != 1) {
   window.location.href = "../../index.html";
 }
 
+allowOnlyNumbers(document.getElementById("weight"));
+allowOnlyNumbers(document.getElementById("height"));
+allowOnlyNumbers(document.getElementById("sistolic"));
+allowOnlyNumbers(document.getElementById("diastolic"));
+
+function allowOnlyNumbers(inputField) {
+  inputField.addEventListener("input", function(event) {
+      let inputValue = event.target.value;
+      // Remove qualquer caractere que não seja um número
+      inputValue = inputValue.replace(/[^0-9]/g, '');
+      // Atualiza o valor do campo de entrada apenas com números
+      event.target.value = inputValue;
+  });
+}
+
 var modal = document.getElementById("myModal");
 
 function limparElementos() {
