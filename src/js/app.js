@@ -41,13 +41,30 @@ allowOnlyNumbers(document.getElementById("diastolic"));
 
 function allowOnlyNumbers(inputField) {
   inputField.addEventListener("input", function(event) {
-      let inputValue = event.target.value;
-      // Remove qualquer caractere que não seja um número
-      inputValue = inputValue.replace(/[^0-9]/g, '');
-      // Atualiza o valor do campo de entrada apenas com números
-      event.target.value = inputValue;
+    // Armazena a posição do cursor antes da modificação
+    let cursorPosition = event.target.selectionStart;
+
+    let inputValue = event.target.value;
+
+    // Remove qualquer caractere que não seja um número
+    let sanitizedValue = inputValue.replace(/[^0-9]/g, '');
+
+    // Calcula a diferença de comprimento entre os valores antes e depois da sanitização
+    let lengthDiff = sanitizedValue.length - inputValue.length;
+
+    // Atualiza o valor do campo de entrada apenas com números
+    event.target.value = sanitizedValue;
+
+    // Calcula a nova posição do cursor
+    let newCursorPosition = cursorPosition + lengthDiff;
+
+    // Define a posição do cursor
+    event.target.setSelectionRange(newCursorPosition, newCursorPosition);
   });
 }
+
+
+
 
 var modal = document.getElementById("myModal");
 
