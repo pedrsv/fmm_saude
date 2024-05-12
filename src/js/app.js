@@ -103,14 +103,14 @@ function showLoadingResult(event) {
   var diastolic = document.getElementById('diastolic').value;
 
   // Verificar se algum dos campos está vazio
-  if (!weight || !height || !sistolic || !diastolic) {
-    alert('Por favor, preencha todos os campos obrigatórios.');
+  if (!weight || weight <= 0 || !height || height <= 0 || !sistolic || sistolic <= 0 || !diastolic || diastolic <= 0) {
+    alert('Por favor, preencha todos os campos obrigatórios corretamente.');
     return; // Interrompe a função se algum campo estiver vazio
   }
 
   // Se todos os campos estiverem preenchidos, prossegue com a lógica de carregamento
   document.getElementById("loading").style.display = "flex";
-  setTimeout(submitFormResult, 2500); // Simulando envio do formulário
+  setTimeout(submitFormResult, 2500);
 }
 
 
