@@ -95,9 +95,24 @@ function showLoading(event) {
 
 function showLoadingResult(event) {
   event.preventDefault(); // Impede o envio padrão do formulário
+
+  // Obter os valores dos campos
+  var weight = document.getElementById('weight').value;
+  var height = document.getElementById('height').value;
+  var sistolic = document.getElementById('sistolic').value;
+  var diastolic = document.getElementById('diastolic').value;
+
+  // Verificar se algum dos campos está vazio
+  if (!weight || !height || !sistolic || !diastolic) {
+    alert('Por favor, preencha todos os campos obrigatórios.');
+    return; // Interrompe a função se algum campo estiver vazio
+  }
+
+  // Se todos os campos estiverem preenchidos, prossegue com a lógica de carregamento
   document.getElementById("loading").style.display = "flex";
   setTimeout(submitFormResult, 2500); // Simulando envio do formulário
 }
+
 
 function showLoadingBackCadastro(event) {
   event.preventDefault(); // Impede o envio padrão do formulário
