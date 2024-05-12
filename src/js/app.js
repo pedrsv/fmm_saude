@@ -879,5 +879,5 @@ document.getElementById('CPF').addEventListener('input', function(e) {
 });
 
 function SiteFMM() {
-  window.open("https://faculdadematiasmachline.org.br/");
+  window.location.href="https://faculdadematiasmachline.org.br/";
 }
