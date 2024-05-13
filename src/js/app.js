@@ -93,6 +93,30 @@ function showLoading(event) {
   }
 }
 
+function showModal() {
+  var modal = document.getElementById('alert-modal');
+  modal.style.display = 'block';
+
+  // Fechar o modal quando o botão de fechar é clicado
+  var closeBtn = modal.querySelector('.close-modal-btn');
+  closeBtn.onclick = function() {
+    modal.style.display = 'none';
+  };
+
+  // Fechar o modal quando o usuário clica no X (close)
+  var span = modal.getElementsByClassName('close-button')[0];
+  span.onclick = function() {
+    modal.style.display = 'none';
+  };
+
+  // Fechar o modal quando o usuário clica fora dele
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  };
+}
+
 function showLoadingResult(event) {
   event.preventDefault(); // Impede o envio padrão do formulário
 
@@ -104,7 +128,7 @@ function showLoadingResult(event) {
 
   // Verificar se algum dos campos está vazio
   if (!weight || weight <= 0 || !height || height <= 0 || !sistolic || sistolic <= 0 || !diastolic || diastolic <= 0) {
-    alert('Por favor, preencha todos os campos obrigatórios corretamente.');
+    showModal();  // Chama a função que mostra o modal de alerta
     return; // Interrompe a função se algum campo estiver vazio
   }
 
@@ -112,6 +136,7 @@ function showLoadingResult(event) {
   document.getElementById("loading").style.display = "flex";
   setTimeout(submitFormResult, 2500);
 }
+
 
 
 function showLoadingBackCadastro(event) {

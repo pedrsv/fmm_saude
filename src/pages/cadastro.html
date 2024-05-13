@@ -17,7 +17,18 @@
         <p>Carregando...</p>
       </div>
 
-      <div class="loading-container" id="loading-container"">
+      <!-- Modal de Alerta -->
+<div class="modal" id="alert-modal">
+  <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Atenção!</h2>
+      <p>Por favor, verifique e preencha todos os campos com informações válidas. Peso, altura e pressões sistólica e diastólica são essenciais para a triagem e não podem ser deixados em branco ou com o valor zero. Preencha esses dados corretamente para continuar.</p>
+      <button class="close-modal-btn">Ok, Entendi</button>
+  </div>
+</div>
+
+
+      <div class="loading-container" id="loading-container">
         <div class="loading-text">Salvando dados...</div>
         <div class="progress-bar">
           <div class="progress-bar-inner" id="progressBar"></div>
