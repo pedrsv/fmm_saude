@@ -439,7 +439,7 @@ function createFichaCadastral() {
       document.getElementById("Dados").innerHTML = `
             <p><b>Nome: </b>${nome}</p>
             <p><b>Idade: </b>${idade}</p>
-            <p><b>Genero: </b>${genero}</p>
+            <p><b>Sexo: </b>${genero}</p>
             `;
 
       const checkboxesDoencas = document.querySelectorAll(
