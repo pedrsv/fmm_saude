@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bFgS3Ph9RjQZofiyCu1skac4T8aLhuenTO6TotHxLc4=",
+  "Hash": "K5dqypqWCe/hfTWAXdxZCFadgrde/1MwCeRL3HQcFw4=",
   "Source": "ApiPwaBackend",
   "BasePath": "_content/ApiPwaBackend",
   "Mode": "Default",
@@ -47,10 +47,10 @@
       "OriginalItemSpec": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\QuickGrid.razor.js"
     },
     {
-      "Identity": "C:\\Users\\VICTOR HUGO\\Desktop\\codiguinhos\\fmm_saude\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ApiPwaBackend.styles.css",
+      "Identity": "C:\\Users\\VICTOR HUGO\\Desktop\\codiguinhos\\Comp_pdw2\\fmm_saude\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ApiPwaBackend.styles.css",
       "SourceId": "ApiPwaBackend",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\VICTOR HUGO\\Desktop\\codiguinhos\\fmm_saude\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\VICTOR HUGO\\Desktop\\codiguinhos\\Comp_pdw2\\fmm_saude\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/ApiPwaBackend",
       "RelativePath": "ApiPwaBackend.styles.css",
       "AssetKind": "All",
@@ -63,7 +63,7 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\VICTOR HUGO\\Desktop\\codiguinhos\\fmm_saude\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ApiPwaBackend.styles.css"
+      "OriginalItemSpec": "C:\\Users\\VICTOR HUGO\\Desktop\\codiguinhos\\Comp_pdw2\\fmm_saude\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ApiPwaBackend.styles.css"
     }
   ]
 }
