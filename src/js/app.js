@@ -521,7 +521,7 @@ function createFichaCadastral() {
       });
 
       document.getElementById("Habits-Alcool-label").textContent =
-        "Consumo de Alcool: ";
+        "Consumo de Álcool: ";
       document.getElementById("Habits-Alcool-value").textContent = valorAlcool;
 
       const radiosTabaco = document.querySelectorAll('input[name="tabaco"]');
@@ -553,7 +553,7 @@ function createFichaCadastral() {
       });
 
       document.getElementById("Habits-Exercicios-label").textContent =
-        "Praticas Exercicios: ";
+        "Praticas Exercícios: ";
       document.getElementById("Habits-Exercicios-value").textContent =
         valorExercicios;
 
@@ -561,7 +561,7 @@ function createFichaCadastral() {
         "habits-Alcool-select"
       ).value;
       document.getElementById("Habits-Alcool-Times-label").textContent =
-        "Quantas vezes consome Alcool: ";
+        "Quantas vezes consome Álcool: ";
       document.getElementById("Habits-Alcool-Times-value").textContent =
         AlcoolSelect;
       const TabacoSelect = document.getElementById(
@@ -575,7 +575,7 @@ function createFichaCadastral() {
         "habits-Exercicios-select"
       ).value;
       document.getElementById("Habits-Exercicios-Times-label").textContent =
-        "Quantas vezes Praticas Exercicios: ";
+        "Quantas vezes Praticas Exercícios: ";
       document.getElementById("Habits-Exercicios-Times-value").textContent =
         ExerciciosSelect;
 
