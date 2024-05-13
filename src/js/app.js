@@ -897,6 +897,47 @@ function Salvar(event, pontosHipertensão) {
     },
     body: new URLSearchParams(data)
   })
+
+  let headersList = {
+    "Accept": "*/*",
+    "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+    "Content-Type": "application/json"
+}
+
+let bodyContent = JSON.stringify({
+    "nomeCompleto": nome,
+    "cpf": cpf,
+    "email": email,
+    "dataNascimento": data_Nascimento,
+    "sexo": genero,
+    "doencasAnteriores": valuesDoencasFamilia.join(", "),
+    "doencasAtuais": valuesDoencas.join(", "),
+    "grauParentesco": grauParentescoSelect,
+    "comorbidadesPreexistentes": valuesComorbidades.join(", "),
+    "consumoAlcool": valorAlcool,
+    "quantVezesAlcool": AlcoolSelect,
+    "consumoTabaco": valorTabaco,
+    "quantVezesTabaco": TabacoSelect,
+    "praticaExercicios": valorExercicios,
+    "quantVezesExercicios": ExerciciosSelect,
+    "peso": weight,
+    "altura": height,
+    "sistolica": sistolic,
+    "diastolica": diastolic,
+    "imc": imc,
+    "imcClass": imcClass,
+    "imcRec": imcRec,
+    "pam": pressure,
+    "pamClass": pressureClass,
+    "pamRec": pressureRec,
+    "possibilidadeHipertencao": pontosHipertensão
+});
+
+let response = fetch("http://localhost:5296/api/Pacientes", {
+    method: "POST",
+    body: bodyContent,
+    headers: headersList
+});
   
 
   showLoadingSalvar(event);
