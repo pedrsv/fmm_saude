@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ApiPwaBackend.Models;
+using ApiPwaBackend.Services;
 
 namespace ApiPwaBackend.Controllers
 {
@@ -81,6 +82,9 @@ namespace ApiPwaBackend.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+
+                var emailService = new EmailService();
+                await emailService.CreateBody(paciente);
             }
             catch (DbUpdateException)
             {

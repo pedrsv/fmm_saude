@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "M48793c6r+/l6AbQ0MEvMxWxIrwnB7/+1FgUA8GM66E=",
+  "Hash": "bFgS3Ph9RjQZofiyCu1skac4T8aLhuenTO6TotHxLc4=",
   "Source": "ApiPwaBackend",
   "BasePath": "_content/ApiPwaBackend",
   "Mode": "Default",
@@ -9,10 +9,10 @@
   "DiscoveryPatterns": [],
   "Assets": [
     {
-      "Identity": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "Identity": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "AssetKind": "All",
@@ -25,13 +25,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\QuickGrid.razor.js",
+      "Identity": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\QuickGrid.razor.js",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "QuickGrid.razor.js",
       "AssetKind": "All",
@@ -44,13 +44,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\QuickGrid.razor.js"
+      "OriginalItemSpec": "C:\\Users\\VICTOR HUGO\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.4\\staticwebassets\\QuickGrid.razor.js"
     },
     {
-      "Identity": "C:\\Users\\VICTOR HUGO\\Desktop\\codiguinhos\\Comp_pdw2\\comp_pwd\\ApiPwaBackend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ApiPwaBackend.styles.css",
+      "Identity": "C:\\Users\\VICTOR HUGO\\Desktop\\codiguinhos\\fmm_saude\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ApiPwaBackend.styles.css",
       "SourceId": "ApiPwaBackend",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\VICTOR HUGO\\Desktop\\codiguinhos\\Comp_pdw2\\comp_pwd\\ApiPwaBackend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\VICTOR HUGO\\Desktop\\codiguinhos\\fmm_saude\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/ApiPwaBackend",
       "RelativePath": "ApiPwaBackend.styles.css",
       "AssetKind": "All",
@@ -63,7 +63,7 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\VICTOR HUGO\\Desktop\\codiguinhos\\Comp_pdw2\\comp_pwd\\ApiPwaBackend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ApiPwaBackend.styles.css"
+      "OriginalItemSpec": "C:\\Users\\VICTOR HUGO\\Desktop\\codiguinhos\\fmm_saude\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ApiPwaBackend.styles.css"
     }
   ]
 }
