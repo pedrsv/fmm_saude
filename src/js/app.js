@@ -538,11 +538,7 @@ function createFichaCadastral() {
           valorAlcool = radioAlcool.value;
         }
       });
-      
-      
-  if (valorAlcool === null) {
-    valorAlcool = "Não informado";
-  }
+
 
       document.getElementById("Habits-Alcool-label").textContent =
         "Consumo de Álcool: ";
@@ -559,9 +555,7 @@ function createFichaCadastral() {
         }
       });
 
-      if (valorTabaco === null) {
-        valorTabaco = "Não informado";
-      }
+
 
       document.getElementById("Habits-Tabaco-label").textContent =
         "Consumo de Tabaco: ";
@@ -847,7 +841,7 @@ function Salvar(event, pontosHipertensão) {
 
   if (valuesComorbidades.join(", ") === '') {
     valorComorbidades = "Não informado";
-  } 
+  }
 
   const radiosAlcool = document.querySelectorAll('input[name="alcool"]');
 
