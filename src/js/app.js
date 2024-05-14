@@ -539,6 +539,9 @@ function createFichaCadastral() {
         }
       });
 
+      if (valorAlcool === null) {
+        valorAlcool = "Não informado";
+      }
 
       document.getElementById("Habits-Alcool-label").textContent =
         "Consumo de Álcool: ";
@@ -555,7 +558,9 @@ function createFichaCadastral() {
         }
       });
 
-
+      if (valorTabaco === null) {
+        valorTabaco = "Não informado";
+      }
 
       document.getElementById("Habits-Tabaco-label").textContent =
         "Consumo de Tabaco: ";
@@ -803,12 +808,6 @@ function Salvar(event, pontosHipertensão) {
   checkboxesDoencas.forEach((checkboxDoencas) => {
     valuesDoencas.push(checkboxDoencas.value);
   });
-  
-  var valorDoencas
-
-  if (valuesDoencas.join(", ") === '') {
-    valorDoencas = "Não informado";
-  }
 
   const checkboxesDoencasFamilia = document.querySelectorAll(
     'input[name="doencas_familiares"]:checked'
@@ -817,12 +816,6 @@ function Salvar(event, pontosHipertensão) {
   checkboxesDoencasFamilia.forEach((checkboxeDoencasFamilia) => {
     valuesDoencasFamilia.push(checkboxeDoencasFamilia.value);
   });
-
-  var valorDoencasFamilia
-
-  if (valuesDoencasFamilia.join(", ") === '') {
-    valorDoencasFamilia = "Não informado";
-  }
 
   const grauParentescoSelect = document.getElementById(
     "diseases-family-select"
@@ -836,13 +829,6 @@ function Salvar(event, pontosHipertensão) {
     valuesComorbidades.push(checkboxComorbidades.value);
   });
 
-  
-  var valorComorbidades
-
-  if (valuesComorbidades.join(", ") === '') {
-    valorComorbidades = "Não informado";
-  }
-
   const radiosAlcool = document.querySelectorAll('input[name="alcool"]');
 
   let valorAlcool = null;
@@ -852,10 +838,6 @@ function Salvar(event, pontosHipertensão) {
       valorAlcool = radioAlcool.value;
     }
   });
-
-  if (valorAlcool === null) {
-    valorAlcool = "Não informado";
-  }
 
   const radiosTabaco = document.querySelectorAll('input[name="tabaco"]');
 
@@ -867,10 +849,6 @@ function Salvar(event, pontosHipertensão) {
       valorTabaco = radioTabaco.value;
     }
   });
-
-  if (valorTabaco === null) {
-    valorTabaco = "Não informado";
-  }
 
   const radiosExercicios = document.querySelectorAll(
     'input[name="exercicios"]'
@@ -884,10 +862,6 @@ function Salvar(event, pontosHipertensão) {
       valorExercicios = radioExercicios.value;
     }
   });
-
-  if (valorExercicios === null) {
-    valorExercicios = "Não informado";
-  }
 
   const AlcoolSelect = document.getElementById("habits-Alcool-select").value;
 
@@ -924,10 +898,10 @@ function Salvar(event, pontosHipertensão) {
     'entry.804215977': data_Nascimento,
     'entry.297042817': 1,
     'entry.685625695': genero,
-    'entry.1388914184':  valorDoencas,
-    'entry.1497921746': valorDoencasFamilia,
+    'entry.1388914184':  valuesDoencas.join(", "),
+    'entry.1497921746': valuesDoencasFamilia.join(", "),
     'entry.927652699': grauParentescoSelect,
-    'entry.1027614789': valorComorbidades,
+    'entry.1027614789': valuesComorbidades.join(", "),
     'entry.1746122409': valorAlcool,
     'entry.682626496': AlcoolSelect,
     'entry.2139665065': valorTabaco,
@@ -996,7 +970,7 @@ let response = fetch("http://localhost:5296/api/Pacientes", {
     headers: headersList
 });
   
-0
+
   showLoadingSalvar(event);
 }
 
