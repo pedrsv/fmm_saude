@@ -462,7 +462,11 @@ function createFichaCadastral() {
 
       if (valuesDoencas.join(", ") === '') {
         valorDoencas = "Não informado";
+      } else{
+        valorDoencas = valuesDoencas.join(", ")
       }
+
+  
 
       document.getElementById("Doencas-existentes-label").textContent =
         "Doenças Atuais: "
@@ -485,6 +489,10 @@ function createFichaCadastral() {
       if (valuesDoencasFamilia.join(", ") === '') {
         valorDoencasFamilia = "Não informado";
       }
+      else{
+        valorDoencasFamilia = valuesDoencasFamilia.join(", ")
+      }
+
 
       // Exibe os valores selecionados
       document.getElementById("Doencas-familiares-label").textContent =
@@ -521,6 +529,8 @@ function createFichaCadastral() {
 
       if (valuesComorbidades.join(", ") === '') {
         valorComorbidades = "Não informado";
+      }else{
+        valorComorbidades = valuesComorbidades.join(", ");
       }
 
       
@@ -809,6 +819,14 @@ function Salvar(event, pontosHipertensão) {
     valuesDoencas.push(checkboxDoencas.value);
   });
 
+  var valorDoencas
+  
+  if (valuesDoencas.join(", ") === '') {
+    valorDoencas = "Não informado";
+  } else{
+    valorDoencas = valuesDoencas.join(", ")
+  }0
+
   const checkboxesDoencasFamilia = document.querySelectorAll(
     'input[name="doencas_familiares"]:checked'
   );
@@ -816,6 +834,15 @@ function Salvar(event, pontosHipertensão) {
   checkboxesDoencasFamilia.forEach((checkboxeDoencasFamilia) => {
     valuesDoencasFamilia.push(checkboxeDoencasFamilia.value);
   });
+
+  var valorDoencasFamilia
+
+  if (valuesDoencasFamilia.join(", ") === '') {
+    valorDoencasFamilia = "Não informado";
+  }
+  else{
+    valorDoencasFamilia = valuesDoencasFamilia.join(", ")
+  }
 
   const grauParentescoSelect = document.getElementById(
     "diseases-family-select"
@@ -829,6 +856,14 @@ function Salvar(event, pontosHipertensão) {
     valuesComorbidades.push(checkboxComorbidades.value);
   });
 
+  var valorComorbidades;
+
+  if (valuesComorbidades.join(", ") === '') {
+    valorComorbidades = "Não informado";
+  }else{
+    valorComorbidades = valuesComorbidades.join(", ");
+  }
+
   const radiosAlcool = document.querySelectorAll('input[name="alcool"]');
 
   let valorAlcool = null;
@@ -838,6 +873,11 @@ function Salvar(event, pontosHipertensão) {
       valorAlcool = radioAlcool.value;
     }
   });
+
+  
+  if (valorAlcool === null) {
+    valorAlcool = "Não informado";
+  }
 
   const radiosTabaco = document.querySelectorAll('input[name="tabaco"]');
 
@@ -849,6 +889,10 @@ function Salvar(event, pontosHipertensão) {
       valorTabaco = radioTabaco.value;
     }
   });
+
+  if (valorTabaco === null) {
+    valorTabaco = "Não informado";
+  }
 
   const radiosExercicios = document.querySelectorAll(
     'input[name="exercicios"]'
@@ -862,6 +906,10 @@ function Salvar(event, pontosHipertensão) {
       valorExercicios = radioExercicios.value;
     }
   });
+
+  if (valorExercicios === null) {
+    valorExercicios = "Não informado";
+  }
 
   const AlcoolSelect = document.getElementById("habits-Alcool-select").value;
 
