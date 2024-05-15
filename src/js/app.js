@@ -378,7 +378,7 @@ function createFichaCadastral() {
   var familiaCardiaca = false;
   var jaTemHipertensao = false;
   const pontosPorParentesco = {
-    "Grau 1 - Pais ou Irmãos": 8,
+    "Grau 1 - Pais ou Irmãos": 10,
     "Grau 2 - Tios ou avós": 5,
     "Grau 3 - Primos ou Bisavós": 2,
   };
@@ -386,17 +386,17 @@ function createFichaCadastral() {
   const pontosPorFrequenciaConsumo = {
     "Nenhuma": 0,
     "Quase nunca": 1,
-    "Socialmente": 3,
-    "Quase Todos os dias": 5,
-    "Todo dia": 8,
+    "Socialmente": 5,
+    "Quase Todos os dias": 8,
+    "Todo dia": 12,
   };
 
   const pontosPorFrequenciaExercicios = {
     "Nenhuma": 0,
     "Quase nunca": 1,
-    "as vezes": 3,
-    "Quase Todos os dias": 5,
-    "Todo dia": 8,
+    "as vezes": 5,
+    "Quase Todos os dias": 8,
+    "Todo dia": 12,
   };
 
   const nome = document.getElementById("nomePaciente").value;
@@ -448,7 +448,7 @@ function createFichaCadastral() {
       const valuesDoencas = [];
       checkboxesDoencas.forEach((checkboxDoencas) => {
         if (checkboxDoencas.value.trim() == "Cardíaca") {
-          pontosHipertensão += 10;
+          pontosHipertensão += 12;
         }
 
         if (checkboxDoencas.value.trim() == "Hipertensão") {
