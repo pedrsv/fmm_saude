@@ -37,6 +37,7 @@ if (localStorage.getItem("session") != 1) {
 allowOnlyNumbers(document.getElementById("height"));
 allowOnlyNumbers(document.getElementById("sistolic"));
 allowOnlyNumbers(document.getElementById("diastolic"));
+allowOnlyNumbersandPoint(document.getElementById("weight"));
 
 function allowOnlyNumbers(inputField) {
   inputField.addEventListener("input", function(event) {
@@ -52,6 +53,37 @@ function allowOnlyNumbers(inputField) {
     let lengthDiff = sanitizedValue.length - inputValue.length;
 
     // Atualiza o valor do campo de entrada apenas com números
+    event.target.value = sanitizedValue;
+
+    // Calcula a nova posição do cursor
+    let newCursorPosition = cursorPosition + lengthDiff;
+
+    // Define a posição do cursor
+    event.target.setSelectionRange(newCursorPosition, newCursorPosition);
+  });
+}
+
+
+function allowOnlyNumbersandPoint(inputField) {
+  inputField.addEventListener("input", function(event) {
+    // Armazena a posição do cursor antes da modificação
+    let cursorPosition = event.target.selectionStart;
+
+    let inputValue = event.target.value;
+
+    // Remove qualquer caractere que não seja um número ou ponto decimal
+    let sanitizedValue = inputValue.replace(/[^0-9.]/g, '');
+
+    // Verifica se há mais de um ponto decimal e remove extras
+    let dotCount = sanitizedValue.split('.').length - 1;
+    if (dotCount > 1) {
+      sanitizedValue = sanitizedValue.slice(0, sanitizedValue.lastIndexOf('.'));
+    }
+
+    // Calcula a diferença de comprimento entre os valores antes e depois da sanitização
+    let lengthDiff = sanitizedValue.length - inputValue.length;
+
+    // Atualiza o valor do campo de entrada apenas com números e ponto decimal
     event.target.value = sanitizedValue;
 
     // Calcula a nova posição do cursor
